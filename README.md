@@ -8,7 +8,7 @@ Fødselsnumre: På [norske-testdata.no/fnr](https://norske-testdata.no/fnr) kan 
 
 Organisasjonsnumre: På [norske-testdata.no/fnr](https://norske-testdata.no/fnr) kan du generere og validere organisasjonsnumre. Jeg har også laget en integrasjon mot Brønnøysundregistrene sitt API for å sjekke at organisasjonsnumrene ikke er i bruk.
 
-##Utvikling
+## Utvikling
 
 Appen er laget i [NextJS](https://nextjs.org/).
 
