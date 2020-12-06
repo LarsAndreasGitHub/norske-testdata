@@ -1,0 +1,18 @@
+.banner {
+    max-width: 60rem;
+    margin: 0 auto;
+
+    &__wrapper {
+        background: var(--dark);
+        color: var(--honeydew);
+        font-weight: bold;
+        margin-top: 0;
+        padding: 1rem;
+    }
+
+    @media (min-width: 500px) {
+        &__wrapper {
+            padding: 2rem;
+        }
+    }
+}

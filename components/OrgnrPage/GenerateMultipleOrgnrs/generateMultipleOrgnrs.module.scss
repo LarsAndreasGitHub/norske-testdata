@@ -1,0 +1,78 @@
+.generateMultipleOrgnrs {
+    .title {
+        font-weight: normal;
+        font-size: 1.5rem;
+    }
+
+    .numberOfOrgnrs {
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .numberOfOrgnrs input {
+        width: 5rem;
+        margin-left: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .checkboxWrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .checkboxWrapper input {
+        margin-left: 1rem;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .textarea {
+        box-sizing: border-box;
+        width: 100%;
+        height: 10rem;
+        &:focus {
+            outline: 0.25rem solid orange;
+        }
+    }
+
+    .textareaLabel {
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+        display: block;
+    }
+
+    @media (min-width: 700px) {
+        display: flex;
+        align-items: flex-start;
+
+        .title {
+            margin-top: 0;
+        }
+
+        .numberOfOrgnrs,
+        .checkboxWrapper {
+            justify-content: space-between;
+            width: 15rem;
+        }
+
+        .inputWrapper {
+            flex: 1;
+        }
+
+        .button {
+            width: unset;
+        }
+
+        .output {
+            flex: 1;
+        }
+
+        .textareaLabel {
+            margin-top: 0rem;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+name: Build and deploy
+
+on:
+    push:
+        branches: [master]
+
+    workflow_dispatch:
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Install!
+              run: yarn
+
+            - name: Build!
+              run: yarn build
+
+            - name: Deploy!
+              uses: SamKirkland/FTP-Deploy-Action@4.0.0
+              with:
+                  server: ftp.domeneshop.no
+                  username: norske-testdata
+                  password: ${{ secrets.FTP_PASSWORD }}
+                  protocol: ftps
+                  local-dir: ./out/
+                  server-dir: ./www/
+                  state-name: ../.sync-state.json
+                  dangerous-clean-slate: true

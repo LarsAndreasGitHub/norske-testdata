@@ -1,0 +1,8 @@
+.input {
+    color: var(--dark);
+    box-sizing: border-box;
+
+    &:focus {
+        outline: 0.25rem solid orange;
+    }
+}

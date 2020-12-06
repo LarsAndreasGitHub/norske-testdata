@@ -1,0 +1,53 @@
+.validateOrgnr {
+    display: flex;
+    flex-direction: column;
+    min-height: 13rem;
+
+    .input {
+        font-size: 1.5rem;
+        max-width: 100%;
+    }
+
+    .inputFieldWrapper {
+        display: flex;
+        align-items: center;
+        max-width: 15rem;
+    }
+
+    .validationMark {
+        margin-left: -1.5rem;
+    }
+
+    .inputWrapper {
+        label {
+            margin-bottom: 0.5rem;
+            max-width: 15rem;
+        }
+        display: flex;
+        flex-direction: column;
+    }
+    .validationBox {
+        margin-top: 1rem;
+    }
+
+    @media (min-width: 700px) {
+        flex-direction: row;
+        justify-content: space-between;
+
+        .validationBox {
+            margin-top: 0;
+            flex: 1;
+        }
+
+        .inputWrapper {
+            flex: 1;
+        }
+    }
+}
+
+.validNumbers {
+    color: green;
+}
+.invalidNumbers {
+    color: red;
+}

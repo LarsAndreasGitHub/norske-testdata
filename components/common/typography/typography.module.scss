@@ -1,0 +1,13 @@
+.h1 {
+    font-size: 2rem;
+    @media (min-width: 500px) {
+        font-size: 3rem;
+    }
+}
+
+.h2 {
+    font-size: 2rem;
+    @media (min-width: 500px) {
+        font-size: 2.25rem;
+    }
+}

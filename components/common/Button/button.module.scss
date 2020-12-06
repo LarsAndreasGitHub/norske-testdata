@@ -1,0 +1,84 @@
+.button {
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.5rem 2rem;
+    position: relative;
+    background: var(--dark);
+    color: var(--honeydew);
+    box-shadow: 0 2px 0 #c6c2bf;
+    border: 0.2rem solid var(--dark);
+    transition-property: background, border-color;
+    transition-duration: 0.2s;
+
+    &:hover,
+    &:hover:focus {
+        top: -1px;
+        background: var(--lt-ebony);
+        color: var(--honeydew);
+        border-color: var(--lt-ebony);
+        box-shadow: 0 3px 0 #c6c2bf;
+    }
+
+    &:focus {
+        outline: 0.25rem solid orange;
+        background: var(--honeydew);
+        color: var(--dark);
+    }
+
+    &:focus:hover {
+        outline: none;
+    }
+
+    &:active,
+    &:active:focus,
+    &:active:hover {
+        background: var(--dk-ebony);
+        border-color: var(--dk-ebony);
+        color: var(--honeydew);
+        top: 1px;
+        box-shadow: 0 0;
+        outline: none;
+        transition-duration: 0s;
+    }
+}
+
+.buttonGhost {
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.5rem 2rem;
+    position: relative;
+    border: 0.2rem solid var(--dark);
+    border-color: var(--dark);
+    background: var(--honeydew);
+    color: var(--dark);
+    transition-property: background, border-color;
+    transition-duration: 0.2s;
+
+    &:hover {
+        background: var(--dark);
+        color: var(--honeydew);
+    }
+
+    &:focus {
+        outline: 0.25rem solid orange;
+    }
+
+    &:focus:hover {
+        outline: none;
+    }
+
+    &:active,
+    &:active:focus,
+    &:active:hover {
+        background: var(--dk-ebony);
+        border-color: var(--dk-ebony);
+        transition-duration: 0s;
+    }
+
+    &.green,
+    &.green:focus,
+    &.green:hover {
+        color: var(--dark);
+        background: var(--ok-green);
+    }
+}
