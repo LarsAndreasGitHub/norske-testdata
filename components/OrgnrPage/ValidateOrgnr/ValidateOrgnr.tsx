@@ -19,10 +19,7 @@ export const ValidateOrgnr: FunctionComponent = () => {
     useEffect(() => {
         setEnhetResponse({ status: RestStatus.Loading });
         setUnderenhetResponse({ status: RestStatus.Loading });
-        console.log('useEffect');
-        console.log('valid', isOrgnrValid(orgnr));
         if (isOrgnrValid(orgnr)) {
-            console.log('valid. calling...');
             orgnrBelongsToEnhet(orgnr).then(result => setEnhetResponse(result));
             orgnrBelongsToUnderenhet(orgnr).then(result => setUnderenhetResponse(result));
         }
