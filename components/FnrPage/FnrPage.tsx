@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { GenerateOneFnr } from './GenerateOneFnr/GenerateOneFnr';
 import { SeparatorLine } from '../common/SeparatorLine/SeparatorLine';
 import { GenerateMultipleFnrs } from './GenerateMultipleFnrs/GenerateMultipleFnrs';
+import { ValidateFnr } from './ValidateFnr/ValidateFnr';
 
 export const FnrPage: FunctionComponent = () => (
     <>
@@ -27,8 +28,9 @@ export const FnrPage: FunctionComponent = () => (
             </nav>
             <FnrIntroText />
             <GenerateOneFnr />
-            <SeparatorLine />
             <GenerateMultipleFnrs />
+            <SeparatorLine />
+            <ValidateFnr />
         </PageWrapper>
     </>
 );

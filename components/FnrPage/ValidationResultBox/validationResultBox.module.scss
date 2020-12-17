@@ -1,0 +1,15 @@
+.validationResultBox {
+    .title {
+        margin-bottom: 0.5rem;
+    }
+
+    .box {
+        background: white;
+        border: 0.25rem solid var(--dark);
+        padding: 1rem;
+    }
+
+    .errorMessage {
+        margin-top: 1rem;
+    }
+}
