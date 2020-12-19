@@ -3,7 +3,7 @@ import styles from '../../OrgnrPage/ValidateOrgnr/validateOrgnr.module.scss';
 import * as React from 'react';
 import { ReactElement } from 'react';
 import { formatDayjs } from '../../utils';
-import { generateFnr, getFirstControlDigit, getKontrollsifre, getSecondControlDigit } from '../fnr-utils';
+import { getFirstControlDigit, getSecondControlDigit } from '../fnr-utils';
 
 const isValidDate = (dateString: string, format: string): boolean => {
     return formatDayjs(dateString, format).format(format) === dateString;
@@ -81,19 +81,13 @@ const getValidationTextAndComponent = (fnrCandidate: string): [string, ReactElem
     const secondControlDigit = getSecondControlDigit(dateString, '' + individnr, firstControlDigit);
     const controlDigits = firstControlDigit + secondControlDigit;
 
-    /*
-    console.log('dateString', dateString);
-    console.log('individnr', individnr);
-    console.log('firstControlDigit', firstControlDigit);
-    console.log('secondControlDigit', secondControlDigit);
-    console.log('controlDigits', controlDigits);*/
-
     if (firstControlDigit.length !== 1 || secondControlDigit.length !== 1) {
         return [
             'Kombinasjonen av individnummeret og fødselsdatoen gir alltid ugyldig kontrollsifre.',
             invalidIndividnr,
         ];
     }
+
     if (controlDigits !== fnrCandidate.substr(9)) {
         return [
             'Kontrollsifrene skulle ha vært ' + controlDigits + '.',
