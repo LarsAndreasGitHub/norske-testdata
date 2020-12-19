@@ -3,6 +3,7 @@ import styles from '../../OrgnrPage/ValidateOrgnr/validateOrgnr.module.scss';
 import * as React from 'react';
 import { ReactElement } from 'react';
 import { formatDayjs } from '../../utils';
+import { generateFnr, getFirstControlDigit, getKontrollsifre, getSecondControlDigit } from '../fnr-utils';
 
 const isValidDate = (dateString: string, format: string): boolean => {
     return formatDayjs(dateString, format).format(format) === dateString;
@@ -12,7 +13,8 @@ const inRange = (number: number, [rangeStart, rangeEnd]: number[]): boolean => {
     return rangeStart <= number && number < rangeEnd;
 };
 
-const isIndividnrValid = (individnr: number, year: number): boolean => {
+const isIndividnrValid = (individnrString: string, year: number): boolean => {
+    const individnr = parseInt(individnrString);
     if (inRange(year, [1854, 1900])) return inRange(individnr, [500, 750]);
     if (inRange(year, [1940, 2000])) return inRange(individnr, [900, 1000]) || inRange(individnr, [0, 500]);
     if (inRange(year, [1900, 2000])) return inRange(individnr, [0, 500]);
@@ -45,7 +47,7 @@ const getValidationTextAndComponent = (fnrCandidate: string): [string, ReactElem
     if (fnrCandidate.length > 11) return ['Fødselsnummeret er for langt.', allInvalid];
 
     const dateString = fnrCandidate.substr(0, 6);
-    const individnr = parseInt(fnrCandidate.substr(6, 3));
+    const individnr = fnrCandidate.substr(6, 3);
 
     const invalidDate = (
         <>
@@ -62,13 +64,42 @@ const getValidationTextAndComponent = (fnrCandidate: string): [string, ReactElem
         return ['Fødselsdatoen er ikke mellom 1854 og 2040', invalidDate];
     }
     const individnrIsValid = validDates.filter(date => isIndividnrValid(individnr, date.year())).length > 0;
+
+    const invalidIndividnr = (
+        <>
+            <span className={styles.validNumbers}>{dateString}</span>
+            <span className={styles.invalidNumbers}>{individnr}</span>
+            {fnrCandidate.substr(9)}
+        </>
+    );
+
     if (!individnrIsValid) {
+        return ['Individnummeret passer ikke med fødselsdatoen.', invalidIndividnr];
+    }
+
+    const firstControlDigit = getFirstControlDigit(dateString, '' + individnr);
+    const secondControlDigit = getSecondControlDigit(dateString, '' + individnr, firstControlDigit);
+    const controlDigits = firstControlDigit + secondControlDigit;
+
+    /*
+    console.log('dateString', dateString);
+    console.log('individnr', individnr);
+    console.log('firstControlDigit', firstControlDigit);
+    console.log('secondControlDigit', secondControlDigit);
+    console.log('controlDigits', controlDigits);*/
+
+    if (firstControlDigit.length !== 1 || secondControlDigit.length !== 1) {
         return [
-            'Individnummeret passer ikke med fødselsdatoen.',
+            'Kombinasjonen av individnummeret og fødselsdatoen gir alltid ugyldig kontrollsifre.',
+            invalidIndividnr,
+        ];
+    }
+    if (controlDigits !== fnrCandidate.substr(9)) {
+        return [
+            'Kontrollsifrene skulle ha vært ' + controlDigits + '.',
             <>
-                <span className={styles.validNumbers}>{dateString}</span>
-                <span className={styles.invalidNumbers}>{individnr}</span>
-                {fnrCandidate.substr(9)}
+                <span className={styles.validNumbers}>{fnrCandidate.substr(0, 9)}</span>
+                <span className={styles.invalidNumbers}>{fnrCandidate.substr(9)}</span>
             </>,
         ];
     }

@@ -11,13 +11,24 @@ const mod11 = tall => {
     return kontrolltall === 11 ? 0 : kontrolltall;
 };
 
-const getKontrollsifre = (fødselsdatoStr, individnrStr) => {
-    const fnrSomTall = (fødselsdatoStr + individnrStr).split('').map(tall => parseInt(tall));
-    const sum1 = fnrSomTall.map((tall, index) => tall * vekttall1[index]).reduce((a, b) => a + b);
-    const kontrolltall1 = mod11(sum1);
-    const sum2 = [...fnrSomTall, kontrolltall1].map((tall, index) => tall * vekttall2[index]).reduce((a, b) => a + b);
-    const kontrolltall2 = mod11(sum2);
-    return `${kontrolltall1}${kontrolltall2}`;
+export const getFirstControlDigit = (dateString: string, individnr: string): string => {
+    const fnrDigits = (dateString + individnr).split('').map(tall => parseInt(tall));
+    const sum = fnrDigits.map((digit, index) => digit * vekttall1[index]).reduce((a, b) => a + b);
+    return '' + mod11(sum);
+};
+
+export const getSecondControlDigit = (dateString: string, individnr: string, firstControlDigit: string): string => {
+    const fnrDigits = (dateString + individnr).split('').map(tall => parseInt(tall));
+    const sum = [...fnrDigits, parseInt(firstControlDigit)]
+        .map((tall, index) => tall * vekttall2[index])
+        .reduce((a, b) => a + b);
+    return '' + mod11(sum);
+};
+
+export const getKontrollsifre = (fødselsdatoStr, individnrStr) => {
+    const firstControlDigit = getFirstControlDigit(fødselsdatoStr, individnrStr);
+    const secondControlDigit = getSecondControlDigit(fødselsdatoStr, individnrStr, firstControlDigit);
+    return `${firstControlDigit}${secondControlDigit}`;
 };
 
 const getRandomIndividnr = fødselsår => {
