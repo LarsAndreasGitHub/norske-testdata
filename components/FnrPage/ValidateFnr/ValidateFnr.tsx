@@ -6,19 +6,12 @@ import { ValidationResultBox } from '../ValidationResultBox/ValidationResultBox'
 import { NotValidIcon, ValidIcon } from '../../common/icons/icons';
 import { onlyContainsNumbers, ValidationResult } from '../../OrgnrPage/ValidateOrgnr/validate-orgnr';
 import { validateFnr } from './validate-fnr';
-import dayjs from 'dayjs';
 
 export const ValidateFnr: FunctionComponent = () => {
     const [fnr, setFnr] = useState<string>('');
     const [validation, setValidation] = useState<ValidationResult | undefined>();
 
     const showValidationResult = fnr && fnr.length > 0;
-
-    const date = dayjs('13022020', 'DDMMYYYY');
-    //1827-07-09
-    //1854-01-01
-    console.log(date);
-    console.log(date.isValid());
 
     return (
         <div className={styles.validateFnr}>
