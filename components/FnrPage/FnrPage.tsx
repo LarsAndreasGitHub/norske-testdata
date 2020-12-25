@@ -7,14 +7,16 @@ import Link from 'next/link';
 import { GenerateOneFnr } from './GenerateOneFnr/GenerateOneFnr';
 import { SeparatorLine } from '../common/SeparatorLine/SeparatorLine';
 import { GenerateMultipleFnrs } from './GenerateMultipleFnrs/GenerateMultipleFnrs';
+import { ValidateFnr } from './ValidateFnr/ValidateFnr';
+import { H2 } from '../common/typography/typography';
 
 export const FnrPage: FunctionComponent = () => (
     <>
         <Head>
             <title>Generer fødselsnumre til testdata</title>
-            <meta name="description" content="Generer gyldige fødselsnumre du kan bruke som testdata." />
+            <meta name="description" content="Valider fødselsnumre. Generer gyldige fødselsnumre til testdata." />
         </Head>
-        <PageWrapper title="Generer gyldige fødselsnumre">
+        <PageWrapper title="Generer og valider fødselsnumre">
             <nav>
                 <Link href="/orgnr">
                     <a className={linkStyle.link}>
@@ -25,10 +27,13 @@ export const FnrPage: FunctionComponent = () => (
                     </a>
                 </Link>
             </nav>
+            <H2>Fødselsnummer-generator</H2>
             <FnrIntroText />
             <GenerateOneFnr />
-            <SeparatorLine />
             <GenerateMultipleFnrs />
+            <SeparatorLine />
+            <H2>Validering av fødselsnumre</H2>
+            <ValidateFnr />
         </PageWrapper>
     </>
 );
