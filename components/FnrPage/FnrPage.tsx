@@ -8,6 +8,7 @@ import { GenerateOneFnr } from './GenerateOneFnr/GenerateOneFnr';
 import { SeparatorLine } from '../common/SeparatorLine/SeparatorLine';
 import { GenerateMultipleFnrs } from './GenerateMultipleFnrs/GenerateMultipleFnrs';
 import { ValidateFnr } from './ValidateFnr/ValidateFnr';
+import { H2 } from '../common/typography/typography';
 
 export const FnrPage: FunctionComponent = () => (
     <>
@@ -26,10 +27,12 @@ export const FnrPage: FunctionComponent = () => (
                     </a>
                 </Link>
             </nav>
+            <H2>Fødselsnummer-generator</H2>
             <FnrIntroText />
             <GenerateOneFnr />
             <GenerateMultipleFnrs />
             <SeparatorLine />
+            <H2>Validering av fødselsnumre</H2>
             <ValidateFnr />
         </PageWrapper>
     </>

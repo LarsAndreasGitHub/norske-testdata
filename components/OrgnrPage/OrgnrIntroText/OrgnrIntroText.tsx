@@ -5,7 +5,7 @@ export const OrgnrIntroText: FunctionComponent = () => (
     <>
         <p>
             Her kan du lage organisasjonsnumre til bruk som testdata. Numrene genereres tilfeldig, og følger reglene for
-            utforming av organisasjonsnumre{' '}
+            oppbygging av organisasjonsnumre{' '}
             <a
                 className={linkStyle.link}
                 href="https://www.brreg.no/om-oss/oppgavene-vare/alle-registrene-vare/om-enhetsregisteret/organisasjonsnummeret/"
