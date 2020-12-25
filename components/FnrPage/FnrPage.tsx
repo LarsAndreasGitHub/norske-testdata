@@ -16,7 +16,7 @@ export const FnrPage: FunctionComponent = () => (
             <title>Generer fødselsnumre til testdata</title>
             <meta name="description" content="Valider fødselsnumre. Generer gyldige fødselsnumre til testdata." />
         </Head>
-        <PageWrapper title="Generer gyldige fødselsnumre">
+        <PageWrapper title="Generer og valider fødselsnumre">
             <nav>
                 <Link href="/orgnr">
                     <a className={linkStyle.link}>
