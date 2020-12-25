@@ -14,7 +14,7 @@ export const FnrPage: FunctionComponent = () => (
     <>
         <Head>
             <title>Generer fødselsnumre til testdata</title>
-            <meta name="description" content="Generer gyldige fødselsnumre du kan bruke som testdata." />
+            <meta name="description" content="Valider fødselsnumre. Generer gyldige fødselsnumre til testdata." />
         </Head>
         <PageWrapper title="Generer gyldige fødselsnumre">
             <nav>

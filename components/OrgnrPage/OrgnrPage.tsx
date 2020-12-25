@@ -19,7 +19,7 @@ export const OrgnrPage: FunctionComponent = () => (
             <title>Generer organisasjonsnumre til testdata</title>
             <meta
                 name="description"
-                content="Generer gyldige organisasjonsnumre du kan bruke som testdata. Sjekk at organisasjonsnumrene ikke er i bruk."
+                content="Valider organisasjonsnumre. Generer gyldige, ubrukte organisasjonsnumre til testdata."
             />
         </Head>
         <PageWrapper title="Generer og valider organisasjonsnumre">
