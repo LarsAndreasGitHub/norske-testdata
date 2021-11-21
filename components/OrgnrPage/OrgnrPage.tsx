@@ -3,7 +3,6 @@ import { FunctionComponent } from 'react';
 import { GenerateOneOrgnr } from './GenerateOneOrgnr/GenerateOneOrgnr';
 import linkStyle from '../common/link/link.module.scss';
 import { OrgnrIntroText } from './OrgnrIntroText/OrgnrIntroText';
-import { SeparatorLine } from '../common/SeparatorLine/SeparatorLine';
 import { GenerateMultipleOrgnrs } from './GenerateMultipleOrgnrs/GenerateMultipleOrgnrs';
 import Head from 'next/head';
 import { PageWrapper } from '../common/PageWrapper/PageWrapper';
@@ -12,6 +11,8 @@ import { ValidateOrgnr } from './ValidateOrgnr/ValidateOrgnr';
 import { OrgnrValidationIntroText } from './OrgnrValidationIntroText';
 import { OrgnrValidationExplanation } from './OrgnrValidationExplanation';
 import { H2 } from '../common/typography/typography';
+import { AnchorLink } from '../common/AnchorLink/AnchorLink';
+import styles from './orgnrPage.module.scss';
 
 export const OrgnrPage: FunctionComponent = () => (
     <>
@@ -33,12 +34,15 @@ export const OrgnrPage: FunctionComponent = () => (
                     </a>
                 </Link>
             </nav>
-            <H2>Organisasjonsnummer-generator</H2>
+            <H2>
+                <AnchorLink anchorTag={'orgnr-generator'}>Organisasjonsnummer-generator</AnchorLink>
+            </H2>
             <GenerateOneOrgnr />
             <OrgnrIntroText />
             <GenerateMultipleOrgnrs />
-            <SeparatorLine />
-            <H2>Validering av organisasjonsnumre</H2>
+            <H2 className={styles.valideringTitle}>
+                <AnchorLink anchorTag={'orgnr-validering'}>Validering av organisasjonsnumre</AnchorLink>
+            </H2>
             <OrgnrValidationIntroText />
             <ValidateOrgnr />
             <OrgnrValidationExplanation />
