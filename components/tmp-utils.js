@@ -1,6 +1,6 @@
-export const removeDuplicates = listOfStrings => {
+export const removeDuplicates = (listOfStrings) => {
     const seen = {};
-    return listOfStrings.filter(function(item) {
+    return listOfStrings.filter(function (item) {
         return seen.hasOwnProperty(item) ? false : (seen[item] = true);
     });
 };
@@ -20,7 +20,7 @@ export const generateUniqueStringList = (length, generator) => {
     for (let i = uniqueStrings.length; i < length; i++) {
         let newString = generator();
 
-        let j=0;
+        let j = 0;
         while (uniqueStrings.includes(newString)) {
             if (j > 10000) throw new Error('Infinite loop');
             newString = generator();
@@ -31,7 +31,7 @@ export const generateUniqueStringList = (length, generator) => {
     return uniqueStrings;
 };
 
-export const copyToClipboard = str => {
+export const copyToClipboard = (str) => {
     const el = document.createElement('textarea');
     el.value = str;
     document.body.appendChild(el);

@@ -1,4 +1,4 @@
-import { FunctionComponent, default as React } from 'react';
+import { default as React, FunctionComponent } from 'react';
 import linkStyle from '../../common/link/link.module.scss';
 
 export const OrgnrIntroText: FunctionComponent = () => (

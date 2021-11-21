@@ -1,4 +1,4 @@
-import { FunctionComponent, default as React } from 'react';
+import { default as React, FunctionComponent } from 'react';
 import styles from './icons.module.scss';
 import { classNames } from '../../utils';
 

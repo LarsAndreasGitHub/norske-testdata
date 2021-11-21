@@ -1,4 +1,4 @@
-import { FunctionComponent, default as React } from 'react';
+import { default as React, FunctionComponent } from 'react';
 
 export const OrgnrValidationIntroText: FunctionComponent = () => (
     <p>

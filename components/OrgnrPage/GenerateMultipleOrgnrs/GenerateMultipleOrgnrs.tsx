@@ -28,7 +28,7 @@ export const GenerateMultipleOrgnrs: FunctionComponent = () => {
                         id="generer-flere__antall"
                         name="generer-flere__antall"
                         value={numberOfOrgnrs}
-                        onChange={event => {
+                        onChange={(event) => {
                             const value = parseInt(event.target.value);
                             !isNaN(value) && setNumberOfOrgnrs(value);
                         }}
@@ -46,7 +46,7 @@ export const GenerateMultipleOrgnrs: FunctionComponent = () => {
                 <div>
                     <ButtonGhost
                         className={styles.button}
-                        onClick={e => {
+                        onClick={(e) => {
                             e.preventDefault();
                             generateOrgnrListAndSetState();
                         }}

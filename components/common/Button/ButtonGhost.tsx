@@ -1,4 +1,4 @@
-import React, { forwardRef, ForwardRefExoticComponent, FunctionComponent, HTMLProps, MutableRefObject } from 'react';
+import React, { forwardRef, ForwardRefExoticComponent, HTMLProps } from 'react';
 import styles from './button.module.scss';
 import { classNames } from '../../utils';
 

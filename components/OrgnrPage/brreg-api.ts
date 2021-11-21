@@ -1,5 +1,5 @@
-export const brregEnhetUrl = orgnr => 'https://data.brreg.no/enhetsregisteret/api/enheter/' + orgnr;
-export const brregUnderenhetUrl = orgnr => 'https://data.brreg.no/enhetsregisteret/api/underenheter/' + orgnr;
+export const brregEnhetUrl = (orgnr) => 'https://data.brreg.no/enhetsregisteret/api/enheter/' + orgnr;
+export const brregUnderenhetUrl = (orgnr) => 'https://data.brreg.no/enhetsregisteret/api/underenheter/' + orgnr;
 
 export enum RestStatus {
     Loading = 'Loading',

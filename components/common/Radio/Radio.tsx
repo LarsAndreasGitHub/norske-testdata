@@ -1,4 +1,4 @@
-import { FunctionComponent, InputHTMLAttributes, default as React } from 'react';
+import { default as React, FunctionComponent } from 'react';
 import styles from './radio.module.scss';
 
 type Props = {

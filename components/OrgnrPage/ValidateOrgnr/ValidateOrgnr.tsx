@@ -20,8 +20,8 @@ export const ValidateOrgnr: FunctionComponent = () => {
         setEnhetResponse({ status: RestStatus.Loading });
         setUnderenhetResponse({ status: RestStatus.Loading });
         if (isOrgnrValid(orgnr)) {
-            orgnrBelongsToEnhet(orgnr).then(result => setEnhetResponse(result));
-            orgnrBelongsToUnderenhet(orgnr).then(result => setUnderenhetResponse(result));
+            orgnrBelongsToEnhet(orgnr).then((result) => setEnhetResponse(result));
+            orgnrBelongsToUnderenhet(orgnr).then((result) => setUnderenhetResponse(result));
         }
     }, [orgnr]);
 
@@ -36,7 +36,7 @@ export const ValidateOrgnr: FunctionComponent = () => {
                         id="validateOrgnr__input"
                         className={styles.input}
                         value={orgnr}
-                        onChange={event => {
+                        onChange={(event) => {
                             const orgnrText = event.target.value;
                             if (onlyContainsNumbers(orgnrText)) {
                                 setOrgnr(orgnrText);
@@ -47,7 +47,7 @@ export const ValidateOrgnr: FunctionComponent = () => {
                                 }
                             }
                         }}
-                        onFocus={event => event.target.select()}
+                        onFocus={(event) => event.target.select()}
                     />
                     {validation &&
                         (validation.valid ? (
