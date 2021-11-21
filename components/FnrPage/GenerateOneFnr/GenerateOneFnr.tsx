@@ -1,5 +1,5 @@
-import { FunctionComponent } from 'react';
 import * as React from 'react';
+import { FunctionComponent } from 'react';
 import { Button } from '../../common/Button/Button';
 import { copyToClipboard } from '../../tmp-utils';
 import { generateFnr } from '../fnr-utils';

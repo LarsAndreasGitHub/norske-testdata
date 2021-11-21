@@ -1,16 +1,16 @@
 .pageWrapper {
-  font-size: 1.5rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    font-size: 1.5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .content {
-  flex: 1;
-  max-width: 60rem;
-  margin: 2rem auto 5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 1.5rem;
+    flex: 1;
+    max-width: 60rem;
+    margin: 2rem auto 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.5rem;
 }

@@ -26,16 +26,16 @@ const getValidYears = (twoDigitYearString: string): number[] => {
     const twoDigitYear = parseInt(twoDigitYearString);
     if (twoDigitYear >= 54) validYears.push('18' + twoDigitYearString);
     if (twoDigitYear <= 39) validYears.push('20' + twoDigitYearString);
-    return validYears.map(year => parseInt(year));
+    return validYears.map((year) => parseInt(year));
 };
 
 const getValidDates = (dateStringDDMMYY: string) => {
     const dayAndMonth = dateStringDDMMYY.substr(0, 4);
     const twoDigitYear = dateStringDDMMYY.substr(4, 2);
     return getValidYears(twoDigitYear)
-        .map(fourDigitYear => dayAndMonth + fourDigitYear)
-        .filter(dateString => isValidDate(dateString, 'DDMMYYYY'))
-        .map(dateString => formatDayjs(dateString, 'DDMMYYYY'));
+        .map((fourDigitYear) => dayAndMonth + fourDigitYear)
+        .filter((dateString) => isValidDate(dateString, 'DDMMYYYY'))
+        .map((dateString) => formatDayjs(dateString, 'DDMMYYYY'));
 };
 
 const getValidationTextAndComponent = (fnrCandidate: string): [string, ReactElement] => {
@@ -63,7 +63,7 @@ const getValidationTextAndComponent = (fnrCandidate: string): [string, ReactElem
     if (validDates.length === 0) {
         return ['Fødselsdatoen er ikke mellom 1854 og 2040', invalidDate];
     }
-    const individnrIsValid = validDates.filter(date => isIndividnrValid(individnr, date.year())).length > 0;
+    const individnrIsValid = validDates.filter((date) => isIndividnrValid(individnr, date.year())).length > 0;
 
     const invalidIndividnr = (
         <>

@@ -1,5 +1,5 @@
-import { FunctionComponent, HTMLProps } from 'react';
 import * as React from 'react';
+import { FunctionComponent, HTMLProps } from 'react';
 import styles from './typography.module.scss';
 import { classNames } from '../../utils';
 

@@ -32,9 +32,7 @@ export const ValidationResultBox: FunctionComponent<Props> = ({ fnr, result, cla
     return (
         <output htmlFor={htmlFor} className={classNames(styles.validationResultBox, className)}>
             <div className={styles.title}>Resultat:</div>
-            <div className={styles.box}>
-                {content}
-            </div>
+            <div className={styles.box}>{content}</div>
         </output>
     );
 };

@@ -1,7 +1,7 @@
 import { getControlDigit } from '../orgnr-utils';
+import * as React from 'react';
 import { ReactElement } from 'react';
 import styles from './validateOrgnr.module.scss';
-import * as React from 'react';
 
 export const onlyContainsNumbers = (str: string): boolean => str.length === 0 || !!str.match(/^\d+$/);
 
@@ -24,7 +24,7 @@ const getValidationTextAndComponent = (orgnrCandidate: string): [string, ReactEl
     if (!onlyContainsNumbers(orgnrCandidate))
         return ['Organisasjonsnummeret inneholder andre tegn enn tall.', allInvalid];
 
-    const orgnrAsDigits = orgnrCandidate.split('').map(digitString => parseInt(digitString));
+    const orgnrAsDigits = orgnrCandidate.split('').map((digitString) => parseInt(digitString));
     const controlDigit = getControlDigit(orgnrAsDigits.slice(0, 8));
     if (controlDigit === 'invalid')
         return [
@@ -66,7 +66,7 @@ export const isOrgnrValid = (orgnrCandidate: string): boolean => {
         return false;
     }
 
-    const orgnrAsDigits = orgnrCandidate.split('').map(digitStr => parseInt(digitStr));
+    const orgnrAsDigits = orgnrCandidate.split('').map((digitStr) => parseInt(digitStr));
     const controlDigit = getControlDigit(orgnrAsDigits);
     return controlDigit === orgnrAsDigits[8];
 };

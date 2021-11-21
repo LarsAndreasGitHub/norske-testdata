@@ -21,7 +21,7 @@ export const getControlDigit = (first8DigitsInOrgnr: number[]): number | 'invali
     return controlDigit;
 };
 
-const getRandomInt = max => {
+const getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
 };
 
@@ -33,12 +33,12 @@ const get8RandomDigits = () => {
     return digits;
 };
 
-const validateOrgnr = orgnr => {
+const validateOrgnr = (orgnr) => {
     if (!validationRegExp.test(orgnr)) {
         return false;
     }
 
-    const orgnrAsDigits = orgnr.split('').map(digitStr => parseInt(digitStr));
+    const orgnrAsDigits = orgnr.split('').map((digitStr) => parseInt(digitStr));
     const controlDigit = getControlDigit(orgnrAsDigits);
     return controlDigit === orgnrAsDigits[8];
 };
@@ -55,7 +55,7 @@ export const generateOrgnr = () => {
     return [...randomDigits, controlDigit].reduce((a, b) => `${a}${b}`, '');
 };
 
-export const generateUniqueOrgnrList = length => generateUniqueStringList(length, generateOrgnr);
+export const generateUniqueOrgnrList = (length) => generateUniqueStringList(length, generateOrgnr);
 
 export const generateUnusedOrgnr = async () => {
     let i = 0;

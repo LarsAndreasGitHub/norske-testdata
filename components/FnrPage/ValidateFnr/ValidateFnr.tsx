@@ -30,7 +30,7 @@ export const ValidateFnr: FunctionComponent = () => {
                             id="validateFnr__input"
                             className={styles.input}
                             value={fnr}
-                            onChange={event => {
+                            onChange={(event) => {
                                 const fnrText = event.target.value;
                                 if (onlyContainsNumbers(fnrText)) {
                                     setFnr(fnrText);
@@ -41,7 +41,7 @@ export const ValidateFnr: FunctionComponent = () => {
                                     }
                                 }
                             }}
-                            onFocus={event => event.target.select()}
+                            onFocus={(event) => event.target.select()}
                         />
                         {validation &&
                             (validation.valid ? (

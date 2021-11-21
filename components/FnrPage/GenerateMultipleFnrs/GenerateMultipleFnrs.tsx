@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { FunctionComponent, useRef, useState } from 'react';
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import styles from './generateMultipleFnrs.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { Radio } from '../../common/Radio/Radio';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { generateUniqueFnrList } from '../fnr-utils';
-import { useEffect } from 'react';
 import { copyToClipboard, downloadJSONFile, downloadTextFile } from '../../tmp-utils';
 
 export const GenerateMultipleFnrs: FunctionComponent = () => {
@@ -33,7 +32,7 @@ export const GenerateMultipleFnrs: FunctionComponent = () => {
                     id="generateMultipleFnrs__number"
                     name="generateMultipleFnrs__number"
                     value={numberOfFnrs}
-                    onChange={event => {
+                    onChange={(event) => {
                         console.log(event.target.value);
                         const value = parseInt(event.target.value);
                         !isNaN(value) && setNumberOfFnrs(value);
@@ -66,7 +65,7 @@ export const GenerateMultipleFnrs: FunctionComponent = () => {
                 />
             </div>
             <ButtonGhost
-                onClick={e => {
+                onClick={(e) => {
                     e.preventDefault();
                     generateFnrListAndSetState();
                     const formattedFnrList = formatFnrList(generatedFnrList.current, formatAsJson);

@@ -7,7 +7,7 @@ interface Props {
     title: string;
 }
 
-export const PageWrapper: FunctionComponent<Props> = props => (
+export const PageWrapper: FunctionComponent<Props> = (props) => (
     <div className={styles.pageWrapper}>
         <Banner>{props.title}</Banner>
         <div className={styles.content}>{props.children}</div>
