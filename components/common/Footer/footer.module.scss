@@ -1,5 +1,15 @@
 .footer {
+    box-sizing: border-box;
     width: 100%;
-    height: 4rem;
+    padding: 2rem;
     background: var(--dark);
+}
+
+.footerContent {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.link {
+    color: var(--honeydew);
 }
