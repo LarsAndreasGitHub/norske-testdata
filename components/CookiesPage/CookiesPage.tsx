@@ -38,6 +38,7 @@ export const CookiesPage: FunctionComponent = () => (
             <p>Dette nettstedet benytter seg av cookies for å forbedre din brukeropplevelse:</p>
             <ul>
                 <li>Cookies for innhenting av brukerstatistikk (Google Analytics)</li>
+                <li>Cookies for personaliserte reklamer (Google AdSense)</li>
                 <li>Cookies for brukertilbakemeldinger (Hotjar)</li>
             </ul>
         </PageWrapper>
