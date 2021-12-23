@@ -1,13 +1,18 @@
 .footer {
     box-sizing: border-box;
     width: 100%;
-    padding: 2rem;
     background: var(--dark);
 }
 
 .footerContent {
+    box-sizing: border-box;
     max-width: 60rem;
     margin: 0 auto;
+    padding: 1rem;
+
+    @media (min-width: 500px) {
+        padding: 2rem 1rem;
+    }
 }
 
 .link {

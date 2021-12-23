@@ -1,18 +1,17 @@
 .banner {
     max-width: 60rem;
     margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
 
     &__wrapper {
         background: var(--dark);
         color: var(--honeydew);
         font-weight: bold;
         margin-top: 0;
-        padding: 1rem;
     }
 
     @media (min-width: 500px) {
-        &__wrapper {
-            padding: 2rem;
-        }
+        padding: 2rem 1rem;
     }
 }
