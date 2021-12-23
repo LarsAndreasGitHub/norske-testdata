@@ -1,0 +1,69 @@
+.generateOneKontonr {
+    .input {
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 3rem;
+    }
+
+    .outputWrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
+    }
+
+    .copyButton {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .copyIcon {
+        margin-left: 0.5rem;
+        width: 1rem;
+    }
+
+    .checkboxWrapper {
+        display: flex;
+        margin-top: 2rem;
+    }
+
+    .checkboxWrapper label {
+        margin-right: 1rem;
+    }
+
+    .generateButton {
+        width: 100%;
+        margin-top: 2rem;
+        display: block;
+    }
+
+    @media (min-width: 700px) {
+        .input {
+            font-size: 4rem;
+        }
+
+        .output {
+            margin-right: 3rem;
+            width: calc(50% + 3rem);
+        }
+
+        .outputWrapper {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .copyButton {
+            margin-top: 0;
+        }
+
+        .generateButton {
+            width: 15rem;
+        }
+    }
+
+    @media (min-width: 900px) {
+        .input {
+            font-size: 5rem;
+        }
+    }
+}
