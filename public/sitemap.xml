@@ -8,4 +8,8 @@
         <loc>https://norske-testdata.no/fnr/</loc>
         <lastmod>2020-11-24</lastmod>
     </url>
+    <url>
+        <loc>https://norske-testdata.no/kontonr/</loc>
+        <lastmod>2020-11-24</lastmod>
+    </url>
 </urlset>

@@ -4,6 +4,7 @@ module.exports = {
             '/': { page: '/' },
             '/orgnr/index.html': { page: '/orgnr' },
             '/fnr/index.html': { page: '/fnr' },
+            '/kontonr/index.html': { page: '/kontonr' },
             '/cookies/index.html': { page: '/cookies' },
         };
     },
