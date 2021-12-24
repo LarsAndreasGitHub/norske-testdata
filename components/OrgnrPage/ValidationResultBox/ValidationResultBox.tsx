@@ -20,7 +20,6 @@ const getOrgnrExistsText = (
     underenhetResponse: RestResource<BrregResponse>,
     enhetResponse: RestResource<BrregResponse>
 ): ReactElement | string => {
-    console.log(underenhetResponse, enhetResponse);
     if (underenhetResponse.status === RestStatus.NotFound && enhetResponse.status === RestStatus.NotFound) {
         return 'Organisasjonsnummeret er ikke i bruk.';
     }

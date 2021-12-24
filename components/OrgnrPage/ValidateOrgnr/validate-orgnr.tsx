@@ -1,4 +1,4 @@
-import { getControlDigit } from '../orgnr-utils';
+import { getOrgnrControlDigit } from '../orgnr-utils';
 import * as React from 'react';
 import { ReactElement } from 'react';
 import styles from './validateOrgnr.module.scss';
@@ -25,7 +25,7 @@ const getValidationTextAndComponent = (orgnrCandidate: string): [string, ReactEl
         return ['Organisasjonsnummeret inneholder andre tegn enn tall.', allInvalid];
 
     const orgnrAsDigits = orgnrCandidate.split('').map((digitString) => parseInt(digitString));
-    const controlDigit = getControlDigit(orgnrAsDigits.slice(0, 8));
+    const controlDigit = getOrgnrControlDigit(orgnrAsDigits.slice(0, 8));
     if (controlDigit === 'invalid')
         return [
             'De første 8 sifrene gir ugyldig kontrollsiffer.',
@@ -67,6 +67,6 @@ export const isOrgnrValid = (orgnrCandidate: string): boolean => {
     }
 
     const orgnrAsDigits = orgnrCandidate.split('').map((digitStr) => parseInt(digitStr));
-    const controlDigit = getControlDigit(orgnrAsDigits);
+    const controlDigit = getOrgnrControlDigit(orgnrAsDigits.slice(0, 8));
     return controlDigit === orgnrAsDigits[8];
 };

@@ -13,6 +13,10 @@ export const classNames = (...names: (string | undefined | null)[]): string => {
 };
 
 export const getMod11ControlDigit = (digits: number[], weights: number[]): number | 'invalid' => {
+    if (digits.length !== weights.length) {
+        console.warn('Digit array not same length as weights array, results may vary');
+    }
+
     const weigthedSumMod11 = digits.map((siffer, index) => siffer * weights[index]).reduce((a, b) => a + b, 0) % 11;
 
     const controlDigit = 11 - weigthedSumMod11;
@@ -35,4 +39,4 @@ export const getRandomDigits = (amount: number): number[] => {
         digits.push(getRandomInt(10));
     }
     return digits;
-}
+};
