@@ -1,11 +1,10 @@
 .link {
+    display: block;
+    border: 0.2rem solid black;
+    padding: 1rem 2rem;
     color: var(--dark);
 
     &:hover {
         text-decoration: none;
-    }
-
-    &:focus {
-        outline: 0.25rem solid orange;
     }
 }
