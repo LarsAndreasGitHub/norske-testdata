@@ -25,9 +25,9 @@ export const OrgnrPage: FunctionComponent = () => (
         </Head>
         <PageWrapper title="Generer og valider organisasjonsnumre">
             <nav>
-                <Link href="/fnr">
+                <Link href="/">
                     <a className={linkStyle.link}>
-                        Generer fødselsnumre{' '}
+                        Annen testdata{' '}
                         <span role="img" aria-label="pil">
                             →
                         </span>

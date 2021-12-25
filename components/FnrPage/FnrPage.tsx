@@ -20,9 +20,9 @@ export const FnrPage: FunctionComponent = () => (
         </Head>
         <PageWrapper title="Generer og valider fødselsnumre">
             <nav>
-                <Link href="/orgnr">
+                <Link href="/">
                     <a className={linkStyle.link}>
-                        Generer organisasjonsnumre{' '}
+                        Annen testdata{' '}
                         <span role="img" aria-label="pil">
                             →
                         </span>

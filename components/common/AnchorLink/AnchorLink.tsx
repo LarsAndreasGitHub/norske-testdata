@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import styles from './anchorLink.module.scss';
+import linkStyles from '../link/link.module.scss';
 
 interface Props {
     anchorTag: string;
@@ -7,7 +7,7 @@ interface Props {
 
 export const AnchorLink: FunctionComponent<Props> = (props) => {
     return (
-        <a id={props.anchorTag} href={'#' + props.anchorTag} className={styles.anchorLink}>
+        <a id={props.anchorTag} href={'#' + props.anchorTag} className={linkStyles.link}>
             {props.children} #
         </a>
     );
