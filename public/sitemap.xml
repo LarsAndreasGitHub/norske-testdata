@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://norske-testdata.no/</loc>
+        <lastmod>2021-12-25</lastmod>
+    </url>
+    <url>
         <loc>https://norske-testdata.no/orgnr/</loc>
-        <lastmod>2020-11-24</lastmod>
+        <lastmod>2021-12-25</lastmod>
     </url>
     <url>
         <loc>https://norske-testdata.no/fnr/</loc>
-        <lastmod>2020-11-24</lastmod>
+        <lastmod>2021-12-25</lastmod>
     </url>
     <url>
         <loc>https://norske-testdata.no/kontonr/</loc>
-        <lastmod>2020-11-24</lastmod>
+        <lastmod>2021-12-25</lastmod>
     </url>
 </urlset>
