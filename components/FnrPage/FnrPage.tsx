@@ -1,9 +1,7 @@
 import { default as React, FunctionComponent } from 'react';
 import Head from 'next/dist/next-server/lib/head';
-import linkStyle from '../common/link/link.module.scss';
 import { PageWrapper } from '../common/PageWrapper/PageWrapper';
 import { FnrIntroText } from './FnrIntroText';
-import Link from 'next/link';
 import { GenerateOneFnr } from './GenerateOneFnr/GenerateOneFnr';
 import { SeparatorLine } from '../common/SeparatorLine/SeparatorLine';
 import { GenerateMultipleFnrs } from './GenerateMultipleFnrs/GenerateMultipleFnrs';
@@ -11,6 +9,7 @@ import { ValidateFnr } from './ValidateFnr/ValidateFnr';
 import { H2 } from '../common/typography/typography';
 import { AnchorLink } from '../common/AnchorLink/AnchorLink';
 import styles from './fnrPage.module.scss';
+import { HomeNavigation } from '../common/HomeNavigation/HomeNavigation';
 
 export const FnrPage: FunctionComponent = () => (
     <>
@@ -19,16 +18,7 @@ export const FnrPage: FunctionComponent = () => (
             <meta name="description" content="Valider fødselsnumre. Generer gyldige fødselsnumre til testdata." />
         </Head>
         <PageWrapper title="Generer og valider fødselsnumre">
-            <nav>
-                <Link href="/">
-                    <a className={linkStyle.link}>
-                        Annen testdata{' '}
-                        <span role="img" aria-label="pil">
-                            →
-                        </span>
-                    </a>
-                </Link>
-            </nav>
+            <HomeNavigation />
             <H2>
                 <AnchorLink anchorTag={'fnr-generator'}>Fødselsnummer-generator</AnchorLink>
             </H2>

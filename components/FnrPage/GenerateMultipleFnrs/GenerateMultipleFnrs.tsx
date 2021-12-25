@@ -52,7 +52,7 @@ export const GenerateMultipleFnrs: FunctionComponent = () => {
                 <Radio
                     checked={copyOrDownload === 'copy'}
                     onChange={() => setCopyOrDownload('copy')}
-                    label="Kopier til utklippstavle"
+                    label="Kopier til utklippstavlen"
                     id="generateMultipleFnrs__copy"
                     name="generateMultipleFnrs"
                 />
