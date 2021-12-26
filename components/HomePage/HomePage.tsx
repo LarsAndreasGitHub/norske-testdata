@@ -21,13 +21,13 @@ export const HomePage: FunctionComponent = () => {
                     programvareutviklere. Velg hvilke testdata du er interessert i.
                 </p>
                 <div className={styles.buttonWrapper}>
-                    <PanelLink href={'/fnr'}>
+                    <PanelLink href={'/fnr'} className={styles.panelLink}>
                         <div>Fødselsnumre</div>
                     </PanelLink>
-                    <PanelLink href={'/orgnr'}>
+                    <PanelLink href={'/orgnr'} className={styles.panelLink}>
                         <div>Organisasjonsnumre</div>
                     </PanelLink>
-                    <PanelLink href={'/kontonr'}>
+                    <PanelLink href={'/kontonr'} className={styles.panelLink}>
                         <div>Kontonumre</div>
                     </PanelLink>
                 </div>

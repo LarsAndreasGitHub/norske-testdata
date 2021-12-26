@@ -1,5 +1,26 @@
 .buttonWrapper {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-top: 2rem;
+}
+
+.panelLink + .panelLink {
+    margin-top: 1rem;
+}
+
+@media (min-width: 800px) {
+    .buttonWrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .panelLink + .panelLink {
+        margin-top: 0;
+        margin-left: 1rem;
+    }
+
+    .panelLink {
+        width: calc(33% - 2rem);
+        text-align: center;
+    }
 }
