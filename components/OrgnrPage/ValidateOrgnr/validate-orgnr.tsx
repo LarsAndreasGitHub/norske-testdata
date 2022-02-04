@@ -62,7 +62,7 @@ export const validateOrgnr = (orgnrCandidate: string): ValidationResult => {
 };
 
 export const isOrgnrValid = (orgnrCandidate: string): boolean => {
-    if (!onlyContainsNumbers(orgnrCandidate)) {
+    if (!onlyContainsNumbers(orgnrCandidate) || orgnrCandidate?.length !== 9) {
         return false;
     }
 
