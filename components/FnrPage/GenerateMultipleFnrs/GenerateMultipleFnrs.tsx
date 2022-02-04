@@ -33,7 +33,6 @@ export const GenerateMultipleFnrs: FunctionComponent = () => {
                     name="generateMultipleFnrs__number"
                     value={numberOfFnrs}
                     onChange={(event) => {
-                        console.log(event.target.value);
                         const value = parseInt(event.target.value);
                         !isNaN(value) && setNumberOfFnrs(value);
                     }}

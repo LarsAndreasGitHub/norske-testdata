@@ -9,7 +9,7 @@ export const HomeNavigation: FunctionComponent = () => (
                 <span role="img" aria-label="pil">
                     ←
                 </span>{' '}
-                Annen testdata
+                Andre testdata
             </a>
         </Link>
     </nav>

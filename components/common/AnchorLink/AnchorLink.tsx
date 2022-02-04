@@ -8,7 +8,8 @@ interface Props {
 export const AnchorLink: FunctionComponent<Props> = (props) => {
     return (
         <a id={props.anchorTag} href={'#' + props.anchorTag} className={linkStyles.link}>
-            {props.children} #
+            {props.children}
         </a>
     );
 };
+    

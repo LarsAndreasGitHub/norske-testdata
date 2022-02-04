@@ -4,14 +4,16 @@ import styles from './generateMultipleKontonrs.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
-import { generateUniqueKontonrList } from '../kontonr-utils';
+import { generateUniqueKontonrList, padWithWildcards } from '../kontonr-utils';
 
 export const GenerateMultipleKontonrs: FunctionComponent = () => {
     const [generatedKontonrList, setGeneratedKontonrList] = useState<string[]>([]);
     const [numberOfKontonrs, setNumberOfKontonrs] = useState<number>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
+    const [registernrTemplate, setRegisternrTemplate] = useState<string>('');
 
-    const generateKontonrListAndSetState = () => setGeneratedKontonrList(generateUniqueKontonrList(numberOfKontonrs));
+    const generateKontonrListAndSetState = () =>
+        setGeneratedKontonrList(generateUniqueKontonrList(numberOfKontonrs, padWithWildcards(registernrTemplate, 10)));
 
     useEffect(generateKontonrListAndSetState, [numberOfKontonrs]);
 
@@ -43,6 +45,22 @@ export const GenerateMultipleKontonrs: FunctionComponent = () => {
                         onChange={() => setFormatAsJson(!formatAsJson)}
                     />
                 </div>
+                <div className={styles.numberOfKontonrs}>
+                    <label htmlFor="generer-flere__registernr">Registernr:</label>
+                    <Input
+                        id="generer-flere__registernr"
+                        name="generer-flere__registernr"
+                        value={registernrTemplate}
+                        onChange={(event) => {
+                            const input = event.target.value?.substring(0,4);
+                            const regexp = new RegExp('^[0-9*]{0,4}$');
+                            if (input?.match(regexp)) {
+                                setRegisternrTemplate(input);
+                            }
+                        }}
+                    />
+                </div>
+
                 <div>
                     <ButtonGhost
                         className={styles.button}

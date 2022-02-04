@@ -40,3 +40,16 @@ export const getRandomDigits = (amount: number): number[] => {
     }
     return digits;
 };
+
+export const getRandomDigitsFromTemplate = (template: string): number[] => {
+    const digits = [];
+    for (let i = 0; i < template.length; i++) {
+        const numberOrWildcard = parseInt(template.charAt(i));
+        if (isNaN(numberOrWildcard)) {
+            digits.push(getRandomInt(10));
+        } else {
+            digits.push(numberOrWildcard);
+        }
+    }
+    return digits;
+};
