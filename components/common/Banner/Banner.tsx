@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 import { H1 } from '../typography/typography';
 
 export const Banner: FunctionComponent = (props) => (
-    <div className={styles.banner__wrapper}>
+    <div className={styles.bannerWrapper}>
         <H1 className={styles.banner}>{props.children}</H1>
     </div>
 );

@@ -48,7 +48,7 @@ class MyDocument extends Document {
                         crossOrigin="anonymous"
                     />
                 </Head>
-                <body>
+                <body className={'dark-mode'}>
                     <Main />
                     <NextScript />
                 </body>

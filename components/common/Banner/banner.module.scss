@@ -4,14 +4,22 @@
     padding: 1rem;
     box-sizing: border-box;
 
-    &__wrapper {
-        background: var(--dark);
-        color: var(--honeydew);
-        font-weight: bold;
-        margin-top: 0;
-    }
-
     @media (min-width: 500px) {
         padding: 2rem 1rem;
+    }
+}
+
+.bannerWrapper {
+    background: var(--text);
+    color: var(--background);
+    font-weight: bold;
+    margin-top: 0;
+}
+
+:global .dark-mode {
+    :local .bannerWrapper {
+        background: var(--background-dark);
+        color: var(--text-light);
+        border-bottom: 0.25rem solid var(--text-light);
     }
 }

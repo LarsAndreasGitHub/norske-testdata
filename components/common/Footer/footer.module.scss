@@ -1,7 +1,7 @@
 .footer {
     box-sizing: border-box;
     width: 100%;
-    background: var(--dark);
+    background: var(--text);
 }
 
 .footerContent {
@@ -16,5 +16,13 @@
 }
 
 .link {
-    color: var(--honeydew);
+    color: var(--background);
+}
+
+:global .dark-mode {
+    :local .footer {
+        background: var(--background-dark);
+        color: var(--text-light);
+        border-top: 0.25rem solid var(--text-light);
+    }
 }

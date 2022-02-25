@@ -9,12 +9,25 @@
 
     --ok-green: #34fa38;
 
+    --background-light: var(--honeydew);
+    --text-dark: var(--dark);
+    --background-dark: var(--dark);
+    --text-light: var(--honeydew);
+
+    --background: var(--background-light);
+    --text: var(--text-dark);
+
     --desktop: 700px;
+
+    .dark-mode {
+        --background: var(--background-dark);
+        --text: var(--text-light);
+    }
 }
 
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: var(--honeydew);
-    color: var(--dark);
+    background: var(--background);
+    color: var(--text);
 }

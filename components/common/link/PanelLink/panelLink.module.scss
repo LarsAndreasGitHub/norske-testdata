@@ -1,8 +1,8 @@
 .link {
     display: block;
-    border: 0.2rem solid black;
+    border: 0.2rem solid var(--text);
     padding: 1rem 2rem;
-    color: var(--dark);
+    color: var(--text);
 
     &:hover {
         text-decoration: none;
