@@ -2,14 +2,18 @@ import { default as React, FunctionComponent } from 'react';
 import Link from 'next/link';
 import linkStyle from '../link/link.module.scss';
 
-export const HomeNavigation: FunctionComponent = () => (
+interface Props {
+    text?: string;
+}
+
+export const HomeNavigation: FunctionComponent<Props> = ({ text }) => (
     <nav>
         <Link href="/">
             <a className={linkStyle.link}>
                 <span role="img" aria-label="pil">
                     ←
                 </span>{' '}
-                Andre testdata
+                {text || 'Andre testdata'}
             </a>
         </Link>
     </nav>
