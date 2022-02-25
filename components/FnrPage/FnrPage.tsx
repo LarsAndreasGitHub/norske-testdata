@@ -1,5 +1,4 @@
 import { default as React, FunctionComponent } from 'react';
-import Head from 'next/dist/next-server/lib/head';
 import { PageWrapper } from '../common/PageWrapper/PageWrapper';
 import { FnrIntroText } from './FnrIntroText';
 import { GenerateOneFnr } from './GenerateOneFnr/GenerateOneFnr';
@@ -10,6 +9,7 @@ import { H2 } from '../common/typography/typography';
 import { AnchorLink } from '../common/AnchorLink/AnchorLink';
 import styles from './fnrPage.module.scss';
 import { HomeNavigation } from '../common/HomeNavigation/HomeNavigation';
+import Head from 'next/head';
 
 export const FnrPage: FunctionComponent = () => (
     <>
