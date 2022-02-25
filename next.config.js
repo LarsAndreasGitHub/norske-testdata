@@ -2,10 +2,10 @@ module.exports = {
     exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
         return {
             '/': { page: '/' },
-            '/orgnr/index.html': { page: '/orgnr' },
-            '/fnr/index.html': { page: '/fnr' },
-            '/kontonr/index.html': { page: '/kontonr' },
-            '/cookies/index.html': { page: '/cookies' },
+            '/orgnr/index': { page: '/orgnr' },
+            '/fnr/index': { page: '/fnr' },
+            '/kontonr/index': { page: '/kontonr' },
+            '/cookies/index': { page: '/cookies' },
         };
     },
 };
