@@ -26,7 +26,6 @@ export const GenerateOneKontonr: FunctionComponent = () => {
                         value={generatedKontonr}
                         readOnly
                         size={9}
-                        onFocus={(event) => event.target.select()}
                     />
                 </output>
 
