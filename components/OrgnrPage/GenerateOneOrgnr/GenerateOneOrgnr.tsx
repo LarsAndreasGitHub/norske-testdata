@@ -36,7 +36,6 @@ export const GenerateOneOrgnr: FunctionComponent = () => {
                         value={generatedOrgnr}
                         readOnly
                         size={9}
-                        onFocus={(event) => event.target.select()}
                     />
                 </output>
 

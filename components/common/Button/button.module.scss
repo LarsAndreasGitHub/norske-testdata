@@ -11,7 +11,7 @@
     transition-duration: 0.2s;
 
     &:hover,
-    &:hover:focus {
+    &:hover:focus-visible {
         top: -1px;
         background: var(--lt-ebony);
         color: var(--honeydew);
@@ -19,18 +19,18 @@
         box-shadow: 0 3px 0 #c6c2bf;
     }
 
-    &:focus {
+    &:focus-visible {
         outline: 0.25rem solid orange;
         background: var(--honeydew);
         color: var(--dark);
     }
 
-    &:focus:hover {
+    &:focus-visible:hover {
         outline: none;
     }
 
     &:active,
-    &:active:focus,
+    &:active:focus-visible,
     &:active:hover {
         background: var(--dk-ebony);
         border-color: var(--dk-ebony);
@@ -59,16 +59,16 @@
         color: var(--honeydew);
     }
 
-    &:focus {
+    &:focus-visible {
         outline: 0.25rem solid orange;
     }
 
-    &:focus:hover {
+    &:focus-visible:hover {
         outline: none;
     }
 
     &:active,
-    &:active:focus,
+    &:active:focus-visible,
     &:active:hover {
         background: var(--dk-ebony);
         border-color: var(--dk-ebony);
@@ -76,7 +76,7 @@
     }
 
     &.green,
-    &.green:focus,
+    &.green:focus-visible,
     &.green:hover {
         color: var(--dark);
         background: var(--ok-green);
