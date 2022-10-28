@@ -1,8 +1,9 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import linkStyles from '../link/link.module.scss';
 
 interface Props {
     anchorTag: string;
+    children: ReactNode;
 }
 
 export const AnchorLink: FunctionComponent<Props> = (props) => {
@@ -12,4 +13,3 @@ export const AnchorLink: FunctionComponent<Props> = (props) => {
         </a>
     );
 };
-    

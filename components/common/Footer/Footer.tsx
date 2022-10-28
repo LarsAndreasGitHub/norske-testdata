@@ -8,8 +8,8 @@ import { classNames } from '../../utils';
 export const Footer: FunctionComponent = () => (
     <div className={styles.footer}>
         <div className={styles.footerContent}>
-            <Link href="/cookies">
-                <a className={classNames(linkStyle.link, styles.link)}>Cookies</a>
+            <Link href="/cookies" className={classNames(linkStyle.link, styles.link)}>
+                Cookies
             </Link>
         </div>
     </div>

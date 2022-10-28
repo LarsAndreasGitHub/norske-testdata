@@ -15,23 +15,19 @@ export const CookiesPage: FunctionComponent = () => (
         <PageWrapper title="Norske testdata – cookies">
             <nav className={styles.navigation}>
                 <div>
-                    <Link href="/fnr">
-                        <a className={linkStyle.link}>
-                            Generer fødselsnumre{' '}
-                            <span role="img" aria-label="pil">
-                                →
-                            </span>
-                        </a>
+                    <Link href="/fnr" className={linkStyle.link}>
+                        Generer fødselsnumre{' '}
+                        <span role="img" aria-label="pil">
+                            →
+                        </span>
                     </Link>
                 </div>
                 <div>
-                    <Link href="/orgnr">
-                        <a className={linkStyle.link}>
-                            Generer organisasjonsnumre{' '}
-                            <span role="img" aria-label="pil">
-                                →
-                            </span>
-                        </a>
+                    <Link href="/orgnr" className={linkStyle.link}>
+                        Generer organisasjonsnumre{' '}
+                        <span role="img" aria-label="pil">
+                            →
+                        </span>
                     </Link>
                 </div>
             </nav>

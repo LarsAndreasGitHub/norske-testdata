@@ -14,7 +14,9 @@ export const GenerateMultipleFnrs: FunctionComponent = () => {
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
     const [copyOrDownload, setCopyOrDownload] = useState<'download' | 'copy'>('copy');
 
-    const generateFnrListAndSetState = () => (generatedFnrList.current = generateUniqueFnrList(numberOfFnrs));
+    const generateFnrListAndSetState = () => {
+        generatedFnrList.current = generateUniqueFnrList(numberOfFnrs);
+    };
 
     useEffect(generateFnrListAndSetState, []);
 
