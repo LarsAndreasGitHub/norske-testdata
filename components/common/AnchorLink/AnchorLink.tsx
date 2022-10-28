@@ -12,4 +12,3 @@ export const AnchorLink: FunctionComponent<Props> = (props) => {
         </a>
     );
 };
-    

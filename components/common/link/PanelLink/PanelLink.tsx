@@ -10,8 +10,8 @@ interface Props {
 
 export const PanelLink: FunctionComponent<Props> = (props) => {
     return (
-        <Link href={props.href}>
-            <a className={classNames(styles.link, props.className)}>{props.children}</a>
+        <Link href={props.href} className={classNames(styles.link, props.className)}>
+            {props.children}
         </Link>
     );
 };

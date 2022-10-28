@@ -52,7 +52,7 @@ export const GenerateMultipleKontonrs: FunctionComponent = () => {
                         name="generer-flere__registernr"
                         value={registernrTemplate}
                         onChange={(event) => {
-                            const input = event.target.value?.substring(0,4);
+                            const input = event.target.value?.substring(0, 4);
                             const regexp = new RegExp('^[0-9*]{0,4}$');
                             if (input?.match(regexp)) {
                                 setRegisternrTemplate(input);
