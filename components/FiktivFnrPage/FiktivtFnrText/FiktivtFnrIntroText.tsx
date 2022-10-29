@@ -1,5 +1,7 @@
 import { default as React, FunctionComponent } from 'react';
 import linkStyle from '../../common/link/link.module.scss';
+import Link from 'next/link';
+import linkStyles from '../../common/link/link.module.scss';
 
 export const FiktivtFnrIntroText: FunctionComponent = () => (
     <>
@@ -15,6 +17,12 @@ export const FiktivtFnrIntroText: FunctionComponent = () => (
             , men å legge til et tall i delen av fødselsnummeret som representerer fødselsdatoen, slik at den ikke
             lenger er en gyldig dato. Slike fødselsnummere vil bestå validering som bare sjekker kontrollsifre, men ikke
             de som kontrollerer dato. Pass på at du velger riktig oppbygging til bruk i din virksomhet.
+        </p>
+        <p>
+            Hvis du trenger ekte personnumre kan du bruke{' '}
+            <Link href={'/fnr'} className={linkStyles.link}>
+                fødselsnummer-generatoren.
+            </Link>
         </p>
     </>
 );

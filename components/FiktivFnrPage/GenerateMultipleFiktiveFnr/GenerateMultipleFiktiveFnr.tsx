@@ -30,7 +30,7 @@ export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
     return (
         <form className={styles.generateMultipleFiktiveFnr}>
             <div className={styles.inputWrapper}>
-                <h2 className={styles.title}>Trenger du flere?</h2>
+                <h2 className={styles.title}>Trenger du flere, eller med andre parametre?</h2>
                 <div className={styles.numberOfFiktiveFnr}>
                     <label htmlFor="generer-flere__antall">Antall:</label>
                     <Input
