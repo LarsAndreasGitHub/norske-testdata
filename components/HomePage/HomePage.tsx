@@ -24,6 +24,9 @@ export const HomePage: FunctionComponent = () => {
                     <PanelLink href={'/fnr'} className={styles.panelLink}>
                         <div>Fødselsnumre</div>
                     </PanelLink>
+                    <PanelLink href={'/fiktivt-fnr'} className={styles.panelLink}>
+                        <div>Fiktive fødselsnumre</div>
+                    </PanelLink>
                     <PanelLink href={'/orgnr'} className={styles.panelLink}>
                         <div>Organisasjonsnumre</div>
                     </PanelLink>

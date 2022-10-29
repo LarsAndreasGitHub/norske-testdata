@@ -53,3 +53,13 @@ export const getRandomDigitsFromTemplate = (template: string): number[] => {
     }
     return digits;
 };
+
+export const getRandomDate = (minDate: Date, maxDate: Date) => {
+    const randomDate = new Date(minDate.getTime() + Math.random() * (maxDate.getTime() - minDate.getTime()));
+    const dayJSDate = dayjs(randomDate);
+
+    if (!dayJSDate.isValid()) {
+        throw new Error('Dato er ikke gyldig: ' + dayJSDate);
+    }
+    return dayJSDate;
+};
