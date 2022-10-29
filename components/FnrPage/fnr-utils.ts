@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { generateUniqueStringList } from '../tmp-utils';
+import { getRandomDate } from '../utils';
 
 const randomInt = (min, max) => min + Math.floor(Math.random() * Math.floor(max - min));
 
@@ -49,7 +50,7 @@ const getRandomIndividnr = (fødselsår) => {
     return 'ugyldig fødselsår';
 };
 
-const getRandomIndividnrString = (fødselsår) => {
+export const getRandomIndividnrString = (fødselsår) => {
     const individnr = '' + getRandomIndividnr(fødselsår);
     if (individnr.length === 1) return '00' + individnr;
     if (individnr.length === 2) return '0' + individnr;
@@ -78,13 +79,7 @@ export const generateFnr = () => {
      */
     const minDate = new Date('1900-01-01');
     const maxDate = new Date('2002-12-31');
-    const randomDate = new Date(minDate.getTime() + Math.random() * (maxDate.getTime() - minDate.getTime()));
-    const dayJSDate = dayjs(randomDate);
-
-    if (!dayJSDate.isValid()) {
-        throw new Error('Dato er ikke gyldig: ' + dayJSDate);
-    }
-    return generateFnrFromDate(dayJSDate);
+    return generateFnrFromDate(getRandomDate(minDate, maxDate));
 };
 
 export const generateUniqueFnrList = (length) => generateUniqueStringList(length, generateFnr);
