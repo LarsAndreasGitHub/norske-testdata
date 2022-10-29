@@ -5,17 +5,24 @@ import { Input } from '../../common/Input/Input';
 import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { generateUniqueFnrList } from '../../FnrPage/fnr-utils';
+import { FiktivtFnrConfig } from '../fiktive-fnr-utils';
 
 export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
     const [generatedFiktiveFnrList, setGeneratedFiktiveFnrList] = useState<string[]>([]);
     const [numberOfFiktiveFnr, setNumberOfFiktiveFnr] = useState<number>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
+    const [fiktivtFnrConfig, setFiktivtFnrConfig] = useState<FiktivtFnrConfig>({
+        addToMonths: 20,
+    });
 
-    const generateFiktiveFnrListAndSetState = () => setGeneratedFiktiveFnrList(generateUniqueFnrList(numberOfFiktiveFnr));
+    const generateFiktiveFnrListAndSetState = () =>
+        setGeneratedFiktiveFnrList(generateUniqueFnrList(numberOfFiktiveFnr));
 
     useEffect(generateFiktiveFnrListAndSetState, [numberOfFiktiveFnr]);
 
-    const formattedFiktiveFnrList = formatAsJson ? JSON.stringify(generatedFiktiveFnrList) : generatedFiktiveFnrList.join(' ');
+    const formattedFiktiveFnrList = formatAsJson
+        ? JSON.stringify(generatedFiktiveFnrList)
+        : generatedFiktiveFnrList.join(' ');
 
     return (
         <form className={styles.generateMultipleFiktiveFnr}>
@@ -31,6 +38,32 @@ export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
                         onChange={(event) => {
                             const value = parseInt(event.target.value);
                             !isNaN(value) && setNumberOfFiktiveFnr(value);
+                        }}
+                    />
+                </div>
+                <div className={styles.numberOfFiktiveFnr}>
+                    <label htmlFor="generer-flere__antall">+ måned:</label>
+                    <Input
+                        type="number"
+                        id="generer-flere__antall"
+                        name="generer-flere__antall"
+                        value={fiktivtFnrConfig.addToMonths}
+                        onChange={(event) => {
+                            const value = parseInt(event.target.value);
+                            !isNaN(value) && setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToMonths: value });
+                        }}
+                    />
+                </div>
+                <div className={styles.numberOfFiktiveFnr}>
+                    <label htmlFor="generer-flere__antall">+ dag:</label>
+                    <Input
+                        type="number"
+                        id="generer-flere__antall"
+                        name="generer-flere__antall"
+                        value={fiktivtFnrConfig.addToDays}
+                        onChange={(event) => {
+                            const value = parseInt(event.target.value);
+                            !isNaN(value) && setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToDays: value });
                         }}
                     />
                 </div>

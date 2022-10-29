@@ -5,23 +5,28 @@ import { Input } from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { copyToClipboard } from '../../tmp-utils';
-import { generateFnr } from '../../FnrPage/fnr-utils';
+import { FiktivtFnrConfig, generateFiktivtFnr } from '../fiktive-fnr-utils';
 
 export const GenerateOneFiktivtFnr: FunctionComponent = () => {
     const [generatedFiktivFnr, setGeneratedFiktivFnr] = useState<string>('');
     const [copied, setCopied] = useState<boolean>(false);
     const copiedTimer = useRef<any>();
     const copyButtonRef = useRef<HTMLButtonElement>();
+    const [fiktivtFnrConfig, setFiktivtFnrConfig] = useState<FiktivtFnrConfig>({
+        addToMonths: 20,
+    });
 
-    useEffect(() => setGeneratedFiktivFnr(generateFnr()), []);
+    useEffect(() => setGeneratedFiktivFnr(generateFiktivtFnr(fiktivtFnrConfig)), []);
 
     const generateFiktivtFnrAndSetState = () => {
-        setGeneratedFiktivFnr(generateFnr());
+        setGeneratedFiktivFnr(generateFiktivtFnr(fiktivtFnrConfig));
     };
 
     return (
         <div className={styles.generateFiktivtFnr}>
-            <label htmlFor="generateFiktivtFnr__output">Generert fødselsnummer:</label>
+            <label htmlFor="generateFiktivtFnr__output">
+                Generert fiktivt fødselsnummer (med +{fiktivtFnrConfig.addToMonths} på måned):
+            </label>
             <div className={styles.outputWrapper}>
                 <output className={styles.output}>
                     <Input
