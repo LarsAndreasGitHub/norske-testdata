@@ -4,80 +4,80 @@ import styles from './generateMultipleFakeFnrs.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
-import { FiktivtFnrConfig, generateUniqueFiktiveFnrList } from '../fiktive-fnr-utils';
+import { FakeFnrConfig, generateUniqueFakeFnrList } from '../fake-fnr-utils';
 
 const getNumberWithinBounds = (n: number, min: number, max: number): number => {
     return Math.min(max, Math.max(min, n));
 };
 
 export const GenerateMultipleFakeFnrs: FunctionComponent = () => {
-    const [generatedFiktiveFnrList, setGeneratedFiktiveFnrList] = useState<string[]>([]);
-    const [numberOfFiktiveFnr, setNumberOfFiktiveFnr] = useState<number>(50);
+    const [generatedFakeFnrList, setGeneratedFakeFnrList] = useState<string[]>([]);
+    const [numberOfFakeFnrs, setNumberOfFakeFnrs] = useState<number>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
-    const [fiktivtFnrConfig, setFiktivtFnrConfig] = useState<FiktivtFnrConfig>({
+    const [fakeFnrConfig, setFakeFnrConfig] = useState<FakeFnrConfig>({
         addToMonths: 20,
     });
 
-    const generateFiktiveFnrListAndSetState = () =>
-        setGeneratedFiktiveFnrList(generateUniqueFiktiveFnrList(numberOfFiktiveFnr, fiktivtFnrConfig));
+    const generateFakeFnrListAndSetState = () =>
+        setGeneratedFakeFnrList(generateUniqueFakeFnrList(numberOfFakeFnrs, fakeFnrConfig));
 
-    useEffect(generateFiktiveFnrListAndSetState, [numberOfFiktiveFnr]);
+    useEffect(generateFakeFnrListAndSetState, [numberOfFakeFnrs]);
 
-    const formattedFiktiveFnrList = formatAsJson
-        ? JSON.stringify(generatedFiktiveFnrList)
-        : generatedFiktiveFnrList.join(' ');
+    const formattedFakeFnrList = formatAsJson
+        ? JSON.stringify(generatedFakeFnrList)
+        : generatedFakeFnrList.join(' ');
 
     return (
-        <form className={styles.generateMultipleFiktiveFnr}>
+        <form className={styles.generateMultipleFakeFnr}>
             <div className={styles.inputWrapper}>
                 <h2 className={styles.title}>Trenger du flere, eller med andre parametre?</h2>
-                <div className={styles.numberOfFiktiveFnr}>
+                <div className={styles.numberOfFakeFnrs}>
                     <label htmlFor="generer-flere__antall">Antall:</label>
                     <Input
                         type="number"
                         id="generer-flere__antall"
                         name="generer-flere__antall"
-                        value={numberOfFiktiveFnr}
+                        value={numberOfFakeFnrs}
                         onChange={(event) => {
                             const value = parseInt(event.target.value);
-                            !isNaN(value) && setNumberOfFiktiveFnr(value);
+                            !isNaN(value) && setNumberOfFakeFnrs(value);
                         }}
                     />
                 </div>
-                <div className={styles.numberOfFiktiveFnr}>
+                <div className={styles.numberOfFakeFnrs}>
                     <label htmlFor="generer-flere__antall">+ måned:</label>
                     <Input
                         type="number"
                         id="generer-flere__antall"
                         name="generer-flere__antall"
-                        value={fiktivtFnrConfig.addToMonths ?? ''}
+                        value={fakeFnrConfig.addToMonths ?? ''}
                         onChange={(event) => {
                             const strValue = event.target.value;
-                            if (strValue === '') setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToMonths: undefined });
+                            if (strValue === '') setFakeFnrConfig({ ...fakeFnrConfig, addToMonths: undefined });
                             const value = parseInt(strValue);
                             if (!isNaN(value)) {
-                                setFiktivtFnrConfig({
-                                    ...fiktivtFnrConfig,
+                                setFakeFnrConfig({
+                                    ...fakeFnrConfig,
                                     addToMonths: getNumberWithinBounds(value, 0, 87),
                                 });
                             }
                         }}
                     />
                 </div>
-                <div className={styles.numberOfFiktiveFnr}>
+                <div className={styles.numberOfFakeFnrs}>
                     <label htmlFor="generer-flere__antall">+ dag:</label>
                     <Input
                         type="number"
                         id="generer-flere__antall"
                         name="generer-flere__antall"
-                        value={fiktivtFnrConfig.addToDays ?? ''}
+                        value={fakeFnrConfig.addToDays ?? ''}
                         onChange={(event) => {
                             const strValue = event.target.value;
-                            if (strValue === '') setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToMonths: undefined });
+                            if (strValue === '') setFakeFnrConfig({ ...fakeFnrConfig, addToMonths: undefined });
                             const value = parseInt(strValue);
                             if (!isNaN(value)) {
-                                setFiktivtFnrConfig({
-                                    ...fiktivtFnrConfig,
+                                setFakeFnrConfig({
+                                    ...fakeFnrConfig,
                                     addToDays: getNumberWithinBounds(value, 0, 68),
                                 });
                             }
@@ -98,7 +98,7 @@ export const GenerateMultipleFakeFnrs: FunctionComponent = () => {
                         className={styles.button}
                         onClick={(e) => {
                             e.preventDefault();
-                            generateFiktiveFnrListAndSetState();
+                            generateFakeFnrListAndSetState();
                         }}
                     >
                         Generer
@@ -113,7 +113,7 @@ export const GenerateMultipleFakeFnrs: FunctionComponent = () => {
                     id="generer-flere__textarea"
                     className={styles.textarea}
                     readOnly
-                    value={formattedFiktiveFnrList}
+                    value={formattedFakeFnrList}
                 />
             </output>
         </form>

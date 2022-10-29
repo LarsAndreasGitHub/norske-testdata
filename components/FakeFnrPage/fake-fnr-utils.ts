@@ -3,17 +3,17 @@ import { Dayjs } from 'dayjs';
 import { getKontrollsifre, getRandomIndividnrString } from '../FnrPage/fnr-utils';
 import { generateUniqueStringList } from '../tmp-utils';
 
-export interface FiktivtFnrConfig {
+export interface FakeFnrConfig {
     addToMonths?: number;
     addToDays?: number;
 }
 
-export const generateFiktivtFnr = (config: FiktivtFnrConfig): string => {
+export const generateFakeFnr = (config: FakeFnrConfig): string => {
     const dayJSDate = getRandomDate(new Date('1900-01-01'), new Date('2002-12-31'));
-    return generateFiktivtFnrFromDate(dayJSDate, config);
+    return generateFakeFnrFromDate(dayJSDate, config);
 };
 
-const generateFiktivtFnrFromDate = (date: Dayjs, config: FiktivtFnrConfig): string => {
+const generateFakeFnrFromDate = (date: Dayjs, config: FakeFnrConfig): string => {
     const fakeBirthDateString = getFakeBirthDateString(date, config);
     let i = 0;
     while (true) {
@@ -27,7 +27,7 @@ const generateFiktivtFnrFromDate = (date: Dayjs, config: FiktivtFnrConfig): stri
     }
 };
 
-const getFakeBirthDateString = (date: Dayjs, config: FiktivtFnrConfig): string => {
+const getFakeBirthDateString = (date: Dayjs, config: FakeFnrConfig): string => {
     let dayStr = date.format('DD');
     let monthStr = date.format('MM');
     const yearStr = date.format('YY');
@@ -59,5 +59,5 @@ const toTwoDigitString = (n: number): string => {
     }
 };
 
-export const generateUniqueFiktiveFnrList = (length: number, config: FiktivtFnrConfig) =>
-    generateUniqueStringList(length, () => generateFiktivtFnr(config));
+export const generateUniqueFakeFnrList = (length: number, config: FakeFnrConfig) =>
+    generateUniqueStringList(length, () => generateFakeFnr(config));

@@ -5,34 +5,34 @@ import { Input } from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { copyToClipboard } from '../../tmp-utils';
-import { FiktivtFnrConfig, generateFiktivtFnr } from '../fiktive-fnr-utils';
+import { FakeFnrConfig, generateFakeFnr } from '../fake-fnr-utils';
 
 export const GenerateOneFakeFnr: FunctionComponent = () => {
-    const [generatedFiktivFnr, setGeneratedFiktivFnr] = useState<string>('');
+    const [generatedFakeFnr, setGeneratedFakeFnr] = useState<string>('');
     const [copied, setCopied] = useState<boolean>(false);
     const copiedTimer = useRef<any>();
     const copyButtonRef = useRef<HTMLButtonElement>();
-    const [fiktivtFnrConfig, setFiktivtFnrConfig] = useState<FiktivtFnrConfig>({
+    const [fakeFnrConfig, setFakeFnrConfig] = useState<FakeFnrConfig>({
         addToMonths: 20,
     });
 
-    useEffect(() => setGeneratedFiktivFnr(generateFiktivtFnr(fiktivtFnrConfig)), []);
+    useEffect(() => setGeneratedFakeFnr(generateFakeFnr(fakeFnrConfig)), []);
 
-    const generateFiktivtFnrAndSetState = () => {
-        setGeneratedFiktivFnr(generateFiktivtFnr(fiktivtFnrConfig));
+    const generateFakeFnrAndSetState = () => {
+        setGeneratedFakeFnr(generateFakeFnr(fakeFnrConfig));
     };
 
     return (
-        <div className={styles.generateFiktivtFnr}>
-            <label htmlFor="generateFiktivtFnr__output">
-                Generert fiktivt fødselsnummer (med +{fiktivtFnrConfig.addToMonths} på måned):
+        <div className={styles.generateFakeFnr}>
+            <label htmlFor="generateFakeFnr__output">
+                Generert fiktivt fødselsnummer (med +{fakeFnrConfig.addToMonths} på måned):
             </label>
             <div className={styles.outputWrapper}>
                 <output className={styles.output}>
                     <Input
-                        id="generateFiktivtFnr__output"
+                        id="generateFakeFnr__output"
                         className={styles.input}
-                        value={generatedFiktivFnr}
+                        value={generatedFakeFnr}
                         readOnly
                         size={9}
                     />
@@ -47,7 +47,7 @@ export const GenerateOneFakeFnr: FunctionComponent = () => {
                     }}
                     ref={copyButtonRef}
                     onClick={() => {
-                        copyToClipboard(generatedFiktivFnr);
+                        copyToClipboard(generatedFakeFnr);
                         copyButtonRef.current && copyButtonRef.current.focus();
                         clearTimeout(copiedTimer.current);
                         setCopied(true);
@@ -60,7 +60,7 @@ export const GenerateOneFakeFnr: FunctionComponent = () => {
                     </div>
                 </ButtonGhost>
             </div>
-            <Button onClick={generateFiktivtFnrAndSetState} className={styles.generateButton}>
+            <Button onClick={generateFakeFnrAndSetState} className={styles.generateButton}>
                 Generer et nytt
             </Button>
         </div>
