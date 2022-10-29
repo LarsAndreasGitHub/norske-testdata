@@ -4,8 +4,11 @@ import styles from './generateMultipleFiktiveFnr.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
-import { generateUniqueFnrList } from '../../FnrPage/fnr-utils';
-import { FiktivtFnrConfig } from '../fiktive-fnr-utils';
+import { FiktivtFnrConfig, generateUniqueFiktiveFnrList } from '../fiktive-fnr-utils';
+
+const getNumberWithinBounds = (n: number, min: number, max: number): number => {
+    return Math.min(max, Math.max(min, n));
+};
 
 export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
     const [generatedFiktiveFnrList, setGeneratedFiktiveFnrList] = useState<string[]>([]);
@@ -16,7 +19,7 @@ export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
     });
 
     const generateFiktiveFnrListAndSetState = () =>
-        setGeneratedFiktiveFnrList(generateUniqueFnrList(numberOfFiktiveFnr));
+        setGeneratedFiktiveFnrList(generateUniqueFiktiveFnrList(numberOfFiktiveFnr, fiktivtFnrConfig));
 
     useEffect(generateFiktiveFnrListAndSetState, [numberOfFiktiveFnr]);
 
@@ -47,10 +50,17 @@ export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
                         type="number"
                         id="generer-flere__antall"
                         name="generer-flere__antall"
-                        value={fiktivtFnrConfig.addToMonths}
+                        value={fiktivtFnrConfig.addToMonths ?? ''}
                         onChange={(event) => {
-                            const value = parseInt(event.target.value);
-                            !isNaN(value) && setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToMonths: value });
+                            const strValue = event.target.value;
+                            if (strValue === '') setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToMonths: undefined });
+                            const value = parseInt(strValue);
+                            if (!isNaN(value)) {
+                                setFiktivtFnrConfig({
+                                    ...fiktivtFnrConfig,
+                                    addToMonths: getNumberWithinBounds(value, 0, 87),
+                                });
+                            }
                         }}
                     />
                 </div>
@@ -60,10 +70,17 @@ export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
                         type="number"
                         id="generer-flere__antall"
                         name="generer-flere__antall"
-                        value={fiktivtFnrConfig.addToDays}
+                        value={fiktivtFnrConfig.addToDays ?? ''}
                         onChange={(event) => {
-                            const value = parseInt(event.target.value);
-                            !isNaN(value) && setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToDays: value });
+                            const strValue = event.target.value;
+                            if (strValue === '') setFiktivtFnrConfig({ ...fiktivtFnrConfig, addToMonths: undefined });
+                            const value = parseInt(strValue);
+                            if (!isNaN(value)) {
+                                setFiktivtFnrConfig({
+                                    ...fiktivtFnrConfig,
+                                    addToDays: getNumberWithinBounds(value, 0, 68),
+                                });
+                            }
                         }}
                     />
                 </div>

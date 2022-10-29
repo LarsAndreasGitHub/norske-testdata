@@ -1,6 +1,7 @@
 import { getRandomDate } from '../utils';
 import { Dayjs } from 'dayjs';
 import { getKontrollsifre, getRandomIndividnrString } from '../FnrPage/fnr-utils';
+import { generateUniqueStringList } from '../tmp-utils';
 
 export interface FiktivtFnrConfig {
     addToMonths?: number;
@@ -32,11 +33,13 @@ const getFakeBirthDateString = (date: Dayjs, config: FiktivtFnrConfig): string =
     const yearStr = date.format('YY');
 
     if (config.addToMonths !== undefined) {
-        const fakeMonth = date.month() + config.addToMonths;
+        // date.month() starts at 0, not 1
+        const fakeMonth = date.month() + 1 + config.addToMonths;
         monthStr = toTwoDigitString(fakeMonth);
     }
     if (config.addToDays !== undefined) {
-        const fakeDay = date.day() + config.addToDays;
+        // date.date() on the other hand, starts at 1
+        const fakeDay = date.date() + config.addToDays;
         dayStr = toTwoDigitString(fakeDay);
     }
     return dayStr + monthStr + yearStr;
@@ -55,3 +58,6 @@ const toTwoDigitString = (n: number): string => {
             throw new Error(`Number could not be converted to two-digit string: ${n}`);
     }
 };
+
+export const generateUniqueFiktiveFnrList = (length: number, config: FiktivtFnrConfig) =>
+    generateUniqueStringList(length, () => generateFiktivtFnr(config));
