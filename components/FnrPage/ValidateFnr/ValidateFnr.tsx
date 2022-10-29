@@ -6,6 +6,7 @@ import { ValidationResultBox } from '../ValidationResultBox/ValidationResultBox'
 import { NotValidIcon, ValidIcon } from '../../common/icons/icons';
 import { onlyContainsNumbers, ValidationResult } from '../../OrgnrPage/ValidateOrgnr/validate-orgnr';
 import { validateFnr } from './validate-fnr';
+import linkStyles from '../../common/link/link.module.scss';
 
 export const ValidateFnr: FunctionComponent = () => {
     const [fnr, setFnr] = useState<string>('');
@@ -18,7 +19,10 @@ export const ValidateFnr: FunctionComponent = () => {
             <p>
                 Lim inn et fødselsnummer i feltet under, så validerer vi det for deg. Valideringen følger reglene for
                 oppbygging av fødselsnumre{' '}
-                <a href="https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/barn-fodt-i-norge/fodselsnummer/">
+                <a
+                    href="https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/barn-fodt-i-norge/fodselsnummer/"
+                    className={linkStyles.link}
+                >
                     beskrevet hos Skatteetaten.
                 </a>
             </p>

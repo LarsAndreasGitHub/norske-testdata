@@ -19,7 +19,7 @@ export const FiktivtFnrIntroText: FunctionComponent = () => (
             de som kontrollerer dato. Pass på at du velger riktig oppbygging til bruk i din virksomhet.
         </p>
         <p>
-            Hvis du trenger ekte personnumre kan du bruke{' '}
+            Hvis du trenger ekte fødselsnumre kan du bruke{' '}
             <Link href={'/fnr'} className={linkStyles.link}>
                 fødselsnummer-generatoren.
             </Link>
