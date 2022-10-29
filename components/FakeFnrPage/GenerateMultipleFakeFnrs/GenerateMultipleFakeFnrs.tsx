@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FunctionComponent, useEffect, useState } from 'react';
-import styles from './generateMultipleFiktiveFnr.module.scss';
+import styles from './generateMultipleFakeFnrs.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
@@ -10,7 +10,7 @@ const getNumberWithinBounds = (n: number, min: number, max: number): number => {
     return Math.min(max, Math.max(min, n));
 };
 
-export const GenerateMultipleFiktiveFnr: FunctionComponent = () => {
+export const GenerateMultipleFakeFnrs: FunctionComponent = () => {
     const [generatedFiktiveFnrList, setGeneratedFiktiveFnrList] = useState<string[]>([]);
     const [numberOfFiktiveFnr, setNumberOfFiktiveFnr] = useState<number>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);

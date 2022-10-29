@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
-import styles from './generateOneFiktivtFnr.module.scss';
+import styles from './generateOneFakeFnr.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { copyToClipboard } from '../../tmp-utils';
 import { FiktivtFnrConfig, generateFiktivtFnr } from '../fiktive-fnr-utils';
 
-export const GenerateOneFiktivtFnr: FunctionComponent = () => {
+export const GenerateOneFakeFnr: FunctionComponent = () => {
     const [generatedFiktivFnr, setGeneratedFiktivFnr] = useState<string>('');
     const [copied, setCopied] = useState<boolean>(false);
     const copiedTimer = useRef<any>();

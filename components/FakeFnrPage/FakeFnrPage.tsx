@@ -5,11 +5,11 @@ import { PageWrapper } from '../common/PageWrapper/PageWrapper';
 import { H2 } from '../common/typography/typography';
 import { AnchorLink } from '../common/AnchorLink/AnchorLink';
 import { HomeNavigation } from '../common/HomeNavigation/HomeNavigation';
-import { GenerateOneFiktivtFnr } from './GenerateOneFiktivtFnr/GenerateOneFiktivtFnr';
-import { FiktivtFnrIntroText } from './FiktivtFnrText/FiktivtFnrIntroText';
-import { GenerateMultipleFiktiveFnr } from './GenerateMultipleFiktiveFnr/GenerateMultipleFiktiveFnr';
+import { GenerateOneFakeFnr } from './GenerateOneFakeFnr/GenerateOneFakeFnr';
+import { FakeFnrIntroText } from './FakeFnrIntroText/FakeFnrIntroText';
+import { GenerateMultipleFakeFnrs } from './GenerateMultipleFakeFnrs/GenerateMultipleFakeFnrs';
 
-export const FiktivtFnrPage: FunctionComponent = () => (
+export const FakeFnrPage: FunctionComponent = () => (
     <>
         <Head>
             <title>Generer fiktive fødselsnumre til testdata</title>
@@ -20,9 +20,9 @@ export const FiktivtFnrPage: FunctionComponent = () => (
             <H2>
                 <AnchorLink anchorTag={'fiktiv-fnr-generator'}>Generer fiktive fødselsnumre</AnchorLink>
             </H2>
-            <GenerateOneFiktivtFnr />
-            <FiktivtFnrIntroText />
-            <GenerateMultipleFiktiveFnr />
+            <GenerateOneFakeFnr />
+            <FakeFnrIntroText />
+            <GenerateMultipleFakeFnrs />
         </PageWrapper>
     </>
 );

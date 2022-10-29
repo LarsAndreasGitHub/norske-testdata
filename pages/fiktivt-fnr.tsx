@@ -1,3 +1,3 @@
-import { FiktivtFnrPage } from '../components/FiktivFnrPage/FiktivtFnrPage';
+import { FakeFnrPage } from '../components/FakeFnrPage/FakeFnrPage';
 
-export default FiktivtFnrPage;
+export default FakeFnrPage;

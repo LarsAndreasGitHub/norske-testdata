@@ -3,7 +3,7 @@ import linkStyle from '../../common/link/link.module.scss';
 import Link from 'next/link';
 import linkStyles from '../../common/link/link.module.scss';
 
-export const FiktivtFnrIntroText: FunctionComponent = () => (
+export const FakeFnrIntroText: FunctionComponent = () => (
     <>
         <p>
             Fiktive eller syntetiske fødselsnumre er ikke ekte fødselsnumre. En vanlig måte å lage fiktive fødselsnumre
