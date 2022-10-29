@@ -10,11 +10,11 @@
     margin: 0 auto;
     padding: 1rem;
 
+    .link {
+        color: var(--honeydew);
+    }
+
     @media (min-width: 500px) {
         padding: 2rem 1rem;
     }
-}
-
-.link {
-    color: var(--honeydew);
 }

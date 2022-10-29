@@ -10,7 +10,11 @@
     </url>
     <url>
         <loc>https://norske-testdata.no/fnr/</loc>
-        <lastmod>2021-12-25</lastmod>
+        <lastmod>2022-10-29</lastmod>
+    </url>
+    <url>
+        <loc>https://norske-testdata.no/fiktivt-fnr/</loc>
+        <lastmod>2022-10-29</lastmod>
     </url>
     <url>
         <loc>https://norske-testdata.no/kontonr/</loc>
