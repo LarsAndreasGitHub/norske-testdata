@@ -8,10 +8,10 @@ import { generateUniqueOrgnrList } from '../orgnr-utils';
 
 export const GenerateMultipleOrgnrs: FunctionComponent = () => {
     const [generatedOrgnrList, setGeneratedOrgnrList] = useState<string[]>([]);
-    const [numberOfOrgnrs, setNumberOfOrgnrs] = useState<number>(50);
+    const [numberOfOrgnrs, setNumberOfOrgnrs] = useState<number | undefined>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
 
-    const generateOrgnrListAndSetState = () => setGeneratedOrgnrList(generateUniqueOrgnrList(numberOfOrgnrs));
+    const generateOrgnrListAndSetState = () => setGeneratedOrgnrList(generateUniqueOrgnrList(numberOfOrgnrs ?? 0));
 
     useEffect(generateOrgnrListAndSetState, [numberOfOrgnrs]);
 
@@ -29,7 +29,11 @@ export const GenerateMultipleOrgnrs: FunctionComponent = () => {
                         name="generer-flere__antall"
                         value={numberOfOrgnrs}
                         onChange={(event) => {
-                            const value = parseInt(event.target.value);
+                            const strValue = event.target.value;
+                            if (!strValue) {
+                                setNumberOfOrgnrs(undefined);
+                            }
+                            const value = parseInt(strValue);
                             !isNaN(value) && setNumberOfOrgnrs(value);
                         }}
                     />

@@ -8,14 +8,16 @@ import { generateUniqueKontonrList, padWithWildcards } from '../kontonr-utils';
 
 export const GenerateMultipleKontonrs: FunctionComponent = () => {
     const [generatedKontonrList, setGeneratedKontonrList] = useState<string[]>([]);
-    const [numberOfKontonrs, setNumberOfKontonrs] = useState<number>(50);
+    const [numberOfKontonrs, setNumberOfKontonrs] = useState<number | undefined>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
     const [registernrTemplate, setRegisternrTemplate] = useState<string>('');
 
     const generateKontonrListAndSetState = () =>
-        setGeneratedKontonrList(generateUniqueKontonrList(numberOfKontonrs, padWithWildcards(registernrTemplate, 10)));
+        setGeneratedKontonrList(
+            generateUniqueKontonrList(numberOfKontonrs ?? 0, padWithWildcards(registernrTemplate, 10))
+        );
 
-    useEffect(generateKontonrListAndSetState, [numberOfKontonrs]);
+    useEffect(generateKontonrListAndSetState, [numberOfKontonrs, registernrTemplate]);
 
     const formattedKontonrList = formatAsJson ? JSON.stringify(generatedKontonrList) : generatedKontonrList.join(' ');
 
@@ -31,7 +33,11 @@ export const GenerateMultipleKontonrs: FunctionComponent = () => {
                         name="generer-flere__antall"
                         value={numberOfKontonrs}
                         onChange={(event) => {
-                            const value = parseInt(event.target.value);
+                            const strValue = event.target.value;
+                            if (!strValue) {
+                                setNumberOfKontonrs(undefined);
+                            }
+                            const value = parseInt(strValue);
                             !isNaN(value) && setNumberOfKontonrs(value);
                         }}
                     />

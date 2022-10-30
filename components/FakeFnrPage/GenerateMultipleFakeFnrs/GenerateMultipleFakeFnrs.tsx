@@ -12,14 +12,14 @@ const getNumberWithinBounds = (n: number, min: number, max: number): number => {
 
 export const GenerateMultipleFakeFnrs: FunctionComponent = () => {
     const [generatedFakeFnrList, setGeneratedFakeFnrList] = useState<string[]>([]);
-    const [numberOfFakeFnrs, setNumberOfFakeFnrs] = useState<number>(50);
+    const [numberOfFakeFnrs, setNumberOfFakeFnrs] = useState<number | undefined>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
     const [fakeFnrConfig, setFakeFnrConfig] = useState<FakeFnrConfig>({
         addToMonths: 20,
     });
 
     const generateFakeFnrListAndSetState = () =>
-        setGeneratedFakeFnrList(generateUniqueFakeFnrList(numberOfFakeFnrs, fakeFnrConfig));
+        setGeneratedFakeFnrList(generateUniqueFakeFnrList(numberOfFakeFnrs ?? 0, fakeFnrConfig));
 
     useEffect(generateFakeFnrListAndSetState, [numberOfFakeFnrs]);
 
@@ -39,7 +39,11 @@ export const GenerateMultipleFakeFnrs: FunctionComponent = () => {
                         name="generer-flere__antall"
                         value={numberOfFakeFnrs}
                         onChange={(event) => {
-                            const value = parseInt(event.target.value);
+                            const strValue = event.target.value;
+                            if (!strValue) {
+                                setNumberOfFakeFnrs(undefined);
+                            }
+                            const value = parseInt(strValue);
                             !isNaN(value) && setNumberOfFakeFnrs(value);
                         }}
                     />

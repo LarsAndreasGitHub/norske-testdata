@@ -10,12 +10,12 @@ import { copyToClipboard, downloadJSONFile, downloadTextFile } from '../../tmp-u
 
 export const GenerateMultipleFnrs: FunctionComponent = () => {
     const generatedFnrList = useRef<string[]>([]);
-    const [numberOfFnrs, setNumberOfFnrs] = useState<number>(50);
+    const [numberOfFnrs, setNumberOfFnrs] = useState<number | undefined>(50);
     const [formatAsJson, setFormatAsJson] = useState<boolean>(false);
     const [copyOrDownload, setCopyOrDownload] = useState<'download' | 'copy'>('copy');
 
     const generateFnrListAndSetState = () => {
-        generatedFnrList.current = generateUniqueFnrList(numberOfFnrs);
+        generatedFnrList.current = generateUniqueFnrList(numberOfFnrs ?? 0);
     };
 
     useEffect(generateFnrListAndSetState, []);
@@ -35,7 +35,11 @@ export const GenerateMultipleFnrs: FunctionComponent = () => {
                     name="generateMultipleFnrs__number"
                     value={numberOfFnrs}
                     onChange={(event) => {
-                        const value = parseInt(event.target.value);
+                        const strValue = event.target.value;
+                        if (!strValue) {
+                            setNumberOfFnrs(undefined);
+                        }
+                        const value = parseInt(strValue);
                         !isNaN(value) && setNumberOfFnrs(value);
                     }}
                 />
