@@ -16,9 +16,9 @@ export const HomePage: FunctionComponent = () => {
                 />
             </Head>
             <PageWrapper title="Norske testdata">
-                <p>
+                <p className={styles.introText}>
                     Denne siden tilbyr generering og validering av diverse norske testdata til bruk i testing for
-                    programvareutviklere. Velg hvilke testdata du er interessert i.
+                    programvareutviklere og -testere. Velg hvilke testdata du er interessert i.
                 </p>
                 <div className={styles.buttonWrapper}>
                     <PanelLink href={'/fnr'} className={styles.panelLink}>
@@ -27,6 +27,8 @@ export const HomePage: FunctionComponent = () => {
                     <PanelLink href={'/fiktivt-fnr'} className={styles.panelLink}>
                         <div>Fiktive fødselsnumre</div>
                     </PanelLink>
+                </div>
+                <div className={styles.buttonWrapper}>
                     <PanelLink href={'/orgnr'} className={styles.panelLink}>
                         <div>Organisasjonsnumre</div>
                     </PanelLink>
