@@ -12,6 +12,23 @@ export const classNames = (...names: (string | undefined | null)[]): string => {
         .join(' ');
 };
 
+const digitSum = (n: number): number =>
+    `${n}`
+        .split('')
+        .map((it) => Number.parseInt(it))
+        .reduce((a, b) => a + b, 0);
+
+export const getMod10ControlDigit = (digits: number[]): number => {
+    const reversedDigits = [...digits];
+    reversedDigits.reverse();
+    const weightedDigitSum = reversedDigits
+        .map((digit, index) => digit * (1 + ((index + 1) % 2))) // corresponds to weights [2, 1, 2, 1, ...]
+        .map((it) => digitSum(it))
+        .reduce((a, b) => a + b, 0);
+    const lastDigitOfSum = weightedDigitSum % 10;
+    return lastDigitOfSum === 0 ? 0 : 10 - lastDigitOfSum;
+};
+
 export const getMod11ControlDigit = (digits: number[], weights: number[]): number | 'invalid' => {
     if (digits.length !== weights.length) {
         console.warn('Digit array not same length as weights array, results may vary');
@@ -27,6 +44,16 @@ export const getMod11ControlDigit = (digits: number[], weights: number[]): numbe
         return 'invalid';
     }
     return controlDigit;
+};
+
+const mod11BaseWeightsReversed = [2, 3, 4, 5, 6, 7]
+export const getMod11ControlDigitAutoWeights = (digits: number[]): number | 'invalid' => {
+    const weights = [];
+    for (let i = 0; i < digits.length; i++) {
+        weights.push(mod11BaseWeightsReversed[i % mod11BaseWeightsReversed.length]);
+    }
+    weights.reverse();
+    return getMod11ControlDigit(digits, weights);
 };
 
 export const getRandomInt = (max): number => {

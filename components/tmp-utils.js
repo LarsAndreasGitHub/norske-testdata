@@ -19,6 +19,7 @@ export const generateUniqueStringList = (length, generator) => {
 
     for (let i = uniqueStrings.length; i < length; i++) {
         let newString = generator();
+        console.log('hello')
 
         let j = 0;
         while (uniqueStrings.includes(newString)) {

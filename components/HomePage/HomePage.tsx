@@ -36,6 +36,11 @@ export const HomePage: FunctionComponent = () => {
                         <div>Kontonumre</div>
                     </PanelLink>
                 </div>
+                <div className={styles.buttonWrapper}>
+                    <PanelLink href={'/kid-nr'} className={styles.panelLink}>
+                        <div>KID-numre</div>
+                    </PanelLink>
+                </div>
             </PageWrapper>
         </>
     );

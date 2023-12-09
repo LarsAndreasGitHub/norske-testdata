@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import { generateUniqueStringList } from '../tmp-utils';
 import { getRandomDate } from '../utils';
 
