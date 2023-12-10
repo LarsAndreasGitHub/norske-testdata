@@ -1,29 +1,29 @@
 import * as React from 'react';
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
-import styles from './generateOneKontonr.module.scss';
+import styles from './generateOneKIDnr.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
-import { generateKontonr } from '../kontonr-utils';
+import { generateKIDnr } from '../kid-nr-utils';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { copyToClipboard } from '../../copy-utils';
 
-export const GenerateOneKontonr: FunctionComponent = () => {
-    const [generatedKontonr, setGeneratedKontonr] = useState<string>('');
+export const GenerateOneKIDnr: FunctionComponent = () => {
+    const [generatedKID, setGeneratedKID] = useState<string>('');
     const [copied, setCopied] = useState<boolean>(false);
     const copiedTimer = useRef<any>();
     const copyButtonRef = useRef<HTMLButtonElement>();
 
-    useEffect(() => setGeneratedKontonr(generateKontonr()), []);
+    useEffect(() => setGeneratedKID(generateKIDnr(10, 'mod10')), []);
 
     return (
-        <div className={styles.generateOneKontonr}>
-            <label htmlFor="generateOneKontonr__output">Generert kontonummer:</label>
+        <div className={styles.generateOneKIDnr}>
+            <label htmlFor="generateOneKIDnr__output">Generert KID-nummer (MOD10):</label>
             <div className={styles.outputWrapper}>
                 <output className={styles.output}>
                     <Input
-                        id="generateOneKontonr__output"
+                        id="generateOneKIDnr__output"
                         className={styles.input}
-                        value={generatedKontonr}
+                        value={generatedKID}
                         readOnly
                         size={9}
                     />
@@ -38,7 +38,7 @@ export const GenerateOneKontonr: FunctionComponent = () => {
                     }}
                     ref={copyButtonRef}
                     onClick={() => {
-                        copyToClipboard(generatedKontonr);
+                        copyToClipboard(generatedKID);
                         copyButtonRef.current && copyButtonRef.current.focus();
                         clearTimeout(copiedTimer.current);
                         setCopied(true);
@@ -51,7 +51,7 @@ export const GenerateOneKontonr: FunctionComponent = () => {
                     </div>
                 </ButtonGhost>
             </div>
-            <Button onClick={() => setGeneratedKontonr(generateKontonr())} className={styles.generateButton}>
+            <Button onClick={() => setGeneratedKID(generateKIDnr(10, 'mod10'))} className={styles.generateButton}>
                 Generer et nytt
             </Button>
         </div>

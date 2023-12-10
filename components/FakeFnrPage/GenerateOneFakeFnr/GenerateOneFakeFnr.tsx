@@ -4,7 +4,7 @@ import styles from './generateOneFakeFnr.module.scss';
 import { Input } from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
-import { copyToClipboard } from '../../tmp-utils';
+import { copyToClipboard } from '../../copy-utils';
 import { FakeFnrConfig, generateFakeFnr } from '../fake-fnr-utils';
 
 export const GenerateOneFakeFnr: FunctionComponent = () => {

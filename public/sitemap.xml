@@ -20,4 +20,8 @@
         <loc>https://norske-testdata.no/kontonr/</loc>
         <lastmod>2021-12-25</lastmod>
     </url>
+    <url>
+        <loc>https://norske-testdata.no/kid-nr/</loc>
+        <lastmod>2023-12-10</lastmod>
+    </url>
 </urlset>

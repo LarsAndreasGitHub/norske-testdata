@@ -1,7 +1,6 @@
-import { getRandomDate } from '../utils';
+import { generateUniqueStringList, getRandomDate } from '../utils';
 import { Dayjs } from 'dayjs';
 import { getKontrollsifre, getRandomIndividnrString } from '../FnrPage/fnr-utils';
-import { generateUniqueStringList } from '../tmp-utils';
 
 export interface FakeFnrConfig {
     addToMonths?: number;

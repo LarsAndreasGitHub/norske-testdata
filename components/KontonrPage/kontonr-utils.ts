@@ -1,5 +1,4 @@
-import { generateUniqueStringList } from '../tmp-utils';
-import { getMod11ControlDigit, getRandomDigits, getRandomDigitsFromTemplate } from '../utils';
+import { generateUniqueStringList, getMod11ControlDigit, getRandomDigitsFromTemplate } from '../utils';
 
 const weights = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
 const validationRegExp = new RegExp('[0-9]{11}');

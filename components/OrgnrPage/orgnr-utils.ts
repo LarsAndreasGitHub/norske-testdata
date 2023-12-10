@@ -1,6 +1,5 @@
-import { generateUniqueStringList } from '../tmp-utils';
 import { orgnrExistsInBrreg } from './brreg-api';
-import { getMod11ControlDigit, getRandomDigits } from '../utils';
+import { generateUniqueStringList, getMod11ControlDigit, getRandomDigits } from '../utils';
 
 const weights = [3, 2, 7, 6, 5, 4, 3, 2];
 
