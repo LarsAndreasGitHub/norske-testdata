@@ -7,6 +7,7 @@ import { H2 } from '../common/typography/typography';
 import { AnchorLink } from '../common/AnchorLink/AnchorLink';
 import { GenerateMultipleKIDnrs } from './GenerateMultipleKIDnrs/GenerateMultipleKIDnrs';
 import { HomeNavigation } from '../common/HomeNavigation/HomeNavigation';
+import linkStyles from '../common/link/link.module.scss';
 
 export const KIDnrPage: FunctionComponent = () => (
     <>
@@ -20,6 +21,16 @@ export const KIDnrPage: FunctionComponent = () => (
                 <AnchorLink anchorTag={'kidnr-generator'}>KID-nummer-generator</AnchorLink>
             </H2>
             <GenerateOneKIDnr />
+            <p>
+                De genererte numrene tilfredsstiller enten MOD10 eller MOD11 som beskrevet i{' '}
+                <a
+                    className={linkStyles.link}
+                    href="https://www.nets.eu/no-nb/PublishingImages/Lists/Accordion%20%20OCR%20giro/AllItems/OCR%20giro%20Systemspesifikasjon.pdf"
+                >
+                    OCR-spesifikasjonen til Nets
+                </a>
+                .
+            </p>
             <GenerateMultipleKIDnrs />
         </PageWrapper>
     </>

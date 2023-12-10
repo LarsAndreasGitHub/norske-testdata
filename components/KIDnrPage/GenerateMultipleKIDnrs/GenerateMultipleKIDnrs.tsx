@@ -13,8 +13,11 @@ export const GenerateMultipleKIDnrs: FunctionComponent = () => {
     const [mode, setMode] = useState<'mod10' | 'mod11'>('mod10');
     const [length, setLength] = useState<number>(10);
 
-    const generateKIDnrListAndSetState = () =>
-        setGeneratedKIDnrList(generateUniqueKIDnrList(numberOfKIDnrs ?? 0, length, 'mod10'));
+    const generateKIDnrListAndSetState = () => {
+        if (length >= 4) {
+            setGeneratedKIDnrList(generateUniqueKIDnrList(numberOfKIDnrs ?? 0, length, 'mod10'));
+        }
+    };
 
     useEffect(generateKIDnrListAndSetState, [numberOfKIDnrs, mode, length]);
 
@@ -42,7 +45,7 @@ export const GenerateMultipleKIDnrs: FunctionComponent = () => {
                     />
                 </div>
                 <div className={styles.numberOfKIDnrs}>
-                    <label htmlFor="generer-flere__lengde">Lengde (2–25):</label>
+                    <label htmlFor="generer-flere__lengde">Lengde (4–25):</label>
                     <Input
                         type="number"
                         id="generer-flere__lengde"

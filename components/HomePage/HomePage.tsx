@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { PageWrapper } from '../common/PageWrapper/PageWrapper';
 import { PanelLink } from '../common/link/PanelLink/PanelLink';
 import styles from './homePage.module.scss';
+import { classNames } from '../utils';
 
 export const HomePage: FunctionComponent = () => {
     return (
@@ -36,7 +37,7 @@ export const HomePage: FunctionComponent = () => {
                         <div>Kontonumre</div>
                     </PanelLink>
                 </div>
-                <div className={styles.buttonWrapper}>
+                <div className={classNames(styles.buttonWrapper, styles.singleButtonWrapper)}>
                     <PanelLink href={'/kid-nr'} className={styles.panelLink}>
                         <div>KID-numre</div>
                     </PanelLink>

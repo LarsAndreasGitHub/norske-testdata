@@ -23,6 +23,12 @@
         + .buttonWrapper {
             margin-top: 2rem;
         }
+
+        &.singleButtonWrapper {
+            box-sizing: border-box;
+            max-width: 50%;
+            padding-right: 1rem;
+        }
     }
 
     .panelLink + .panelLink {
