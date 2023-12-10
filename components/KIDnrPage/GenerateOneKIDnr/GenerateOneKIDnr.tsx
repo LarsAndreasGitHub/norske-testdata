@@ -8,12 +8,12 @@ import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { copyToClipboard } from '../../copy-utils';
 
 export const GenerateOneKIDnr: FunctionComponent = () => {
-    const [generatedKontonr, setGeneratedKontonr] = useState<string>('');
+    const [generatedKID, setGeneratedKID] = useState<string>('');
     const [copied, setCopied] = useState<boolean>(false);
     const copiedTimer = useRef<any>();
     const copyButtonRef = useRef<HTMLButtonElement>();
 
-    useEffect(() => setGeneratedKontonr(generateKIDnr(10, 'mod10')), []);
+    useEffect(() => setGeneratedKID(generateKIDnr(10, 'mod10')), []);
 
     return (
         <div className={styles.generateOneKIDnr}>
@@ -23,7 +23,7 @@ export const GenerateOneKIDnr: FunctionComponent = () => {
                     <Input
                         id="generateOneKIDnr__output"
                         className={styles.input}
-                        value={generatedKontonr}
+                        value={generatedKID}
                         readOnly
                         size={9}
                     />
@@ -38,7 +38,7 @@ export const GenerateOneKIDnr: FunctionComponent = () => {
                     }}
                     ref={copyButtonRef}
                     onClick={() => {
-                        copyToClipboard(generatedKontonr);
+                        copyToClipboard(generatedKID);
                         copyButtonRef.current && copyButtonRef.current.focus();
                         clearTimeout(copiedTimer.current);
                         setCopied(true);
@@ -51,7 +51,7 @@ export const GenerateOneKIDnr: FunctionComponent = () => {
                     </div>
                 </ButtonGhost>
             </div>
-            <Button onClick={() => setGeneratedKontonr(generateKIDnr(10, 'mod10'))} className={styles.generateButton}>
+            <Button onClick={() => setGeneratedKID(generateKIDnr(10, 'mod10'))} className={styles.generateButton}>
                 Generer et nytt
             </Button>
         </div>
