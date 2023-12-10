@@ -1,5 +1,9 @@
-import { generateUniqueStringList } from '../tmp-utils';
-import { getMod10ControlDigit, getMod11ControlDigitAutoWeights, getRandomDigits } from '../utils';
+import {
+    generateUniqueStringList,
+    getMod10ControlDigit,
+    getMod11ControlDigitAutoWeights,
+    getRandomDigits,
+} from '../utils';
 
 export const generateKIDnr = (length: number, mode: 'mod10' | 'mod11') => {
     if (mode === 'mod11') {

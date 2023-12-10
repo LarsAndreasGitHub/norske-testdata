@@ -90,3 +90,35 @@ export const getRandomDate = (minDate: Date, maxDate: Date) => {
     }
     return dayJSDate;
 };
+
+export const removeDuplicates = (listOfStrings: string[]) => {
+    const seen = {};
+    return listOfStrings.filter(function (item) {
+        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+};
+
+export const generateUniqueStringList = (length: number, generator: () => string): string[] => {
+    if (length === 0) {
+        return [];
+    }
+
+    let list = [];
+    for (let i = 0; i < length; i++) {
+        list.push(generator());
+    }
+
+    const uniqueStrings = removeDuplicates(list);
+
+    for (let i = uniqueStrings.length; i < length; i++) {
+        let newString = generator();
+        let j = 0;
+        while (uniqueStrings.includes(newString)) {
+            if (j > 10000) throw new Error('Infinite loop');
+            newString = generator();
+        }
+        uniqueStrings.push(newString);
+    }
+
+    return uniqueStrings;
+};

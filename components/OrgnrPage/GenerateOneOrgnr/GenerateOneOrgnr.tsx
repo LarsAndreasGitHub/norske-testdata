@@ -6,7 +6,7 @@ import { Button } from '../../common/Button/Button';
 import { generateOrgnr, generateUnusedOrgnr } from '../orgnr-utils';
 import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
-import { copyToClipboard } from '../../tmp-utils';
+import { copyToClipboard } from '../../copy-utils';
 
 export const GenerateOneOrgnr: FunctionComponent = () => {
     const [generatedOrgnr, setGeneratedOrgnr] = useState<string>('');

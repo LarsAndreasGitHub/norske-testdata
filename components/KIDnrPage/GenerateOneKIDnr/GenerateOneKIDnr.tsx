@@ -5,7 +5,7 @@ import { Input } from '../../common/Input/Input';
 import { Button } from '../../common/Button/Button';
 import { generateKIDnr } from '../kid-nr-utils';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
-import { copyToClipboard } from '../../tmp-utils';
+import { copyToClipboard } from '../../copy-utils';
 
 export const GenerateOneKIDnr: FunctionComponent = () => {
     const [generatedKontonr, setGeneratedKontonr] = useState<string>('');

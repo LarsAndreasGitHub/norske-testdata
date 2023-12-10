@@ -6,7 +6,7 @@ import { Checkbox } from '../../common/Checkbox/Checkbox';
 import { Radio } from '../../common/Radio/Radio';
 import { ButtonGhost } from '../../common/Button/ButtonGhost';
 import { generateUniqueFnrList } from '../fnr-utils';
-import { copyToClipboard, downloadJSONFile, downloadTextFile } from '../../tmp-utils';
+import { copyToClipboard, downloadJSONFile, downloadTextFile } from '../../copy-utils';
 
 export const GenerateMultipleFnrs: FunctionComponent = () => {
     const generatedFnrList = useRef<string[]>([]);

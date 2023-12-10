@@ -1,5 +1,4 @@
-import { generateUniqueStringList } from '../tmp-utils';
-import { getRandomDate } from '../utils';
+import { generateUniqueStringList, getRandomDate } from '../utils';
 
 const randomInt = (min, max) => min + Math.floor(Math.random() * Math.floor(max - min));
 
