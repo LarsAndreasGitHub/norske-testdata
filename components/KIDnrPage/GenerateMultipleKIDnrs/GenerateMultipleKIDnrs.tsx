@@ -15,7 +15,7 @@ export const GenerateMultipleKIDnrs: FunctionComponent = () => {
 
     const generateKIDnrListAndSetState = () => {
         if (length >= 4) {
-            setGeneratedKIDnrList(generateUniqueKIDnrList(numberOfKIDnrs ?? 0, length, 'mod10'));
+            setGeneratedKIDnrList(generateUniqueKIDnrList(numberOfKIDnrs ?? 0, length, mode));
         }
     };
 
